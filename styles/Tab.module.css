@@ -1,0 +1,51 @@
+.containerTb {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: white;
+
+}
+
+.blocTabs {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-bottom: 1px solid #f1f1f1;
+
+  
+}
+
+.tabs {
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: white;
+  cursor: pointer;
+  position: relative;
+ 
+}
+
+.activeTabs {
+  background: white;
+  border-bottom: 1px solid transparent;
+  font-weight: 600;
+  border-bottom: 3px solid #1FAEEF;
+}
+
+
+
+.contentTabs {
+  flex-grow: 1;
+}
+
+.content {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.activeContent {
+  display: block;
+}
