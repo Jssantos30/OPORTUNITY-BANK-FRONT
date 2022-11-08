@@ -16,4 +16,4 @@ function useClickOutsideComponent(ref, setState) {
   }, [ref])
 }
 
-export default useClickOutsideComponent
+export default useClickOutsideComponent 

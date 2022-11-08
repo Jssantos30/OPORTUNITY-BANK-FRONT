@@ -1,14 +1,12 @@
 import React from 'react'
 import Btn from '../components/Asesores/Btn'
-import Link from 'next/link'
-import Title from '../components/Title'
 
 const LayoutSuperAdmin = ({ children }) => {
   return (
     <section className="bg-app">
-      <div className="wrapper-backoffice flex flex-col mx-auto my-4 justify-center md:flex-row">
-        <div className="max-w-1/5 border-menu min-h-full px-0 bg-white">
-          <Btn
+      <div className="wrapper-backoffice flex flex-col mx-auto my-10 py-14 px-10 justify-center md:flex-row">
+        <div className="max-w-1/5 border-menu min-h-full px-0 py-5 bg-white">
+          <Btn 
             href="/backoffice"
             name="Solicitudes de crédito"
           />

@@ -38,6 +38,7 @@ const LineaCredito = props => {
               'Agroindustrial',
               'Venteros ambulantes',
               'Egresados',
+              'Base Tecnológica',
             ]),
           cuotas: Yup.number().required('requerido').positive().integer().min(2),
           monto: Yup.number()
@@ -56,6 +57,8 @@ const LineaCredito = props => {
                 case 'Venteros ambulantes':
                   return schema.max(5000000, message)
                 case 'Egresados':
+                  return schema.max(19987572, message)
+                case 'Base Tecnológica':
                   return schema.max(19987572, message)
               }
             }),

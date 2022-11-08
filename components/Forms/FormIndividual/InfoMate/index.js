@@ -103,7 +103,7 @@ const InfoMate = props => {
                 )
               },
             ),
-          telefono: Yup.number().typeError('Debe ser un numero').positive().notRequired(),
+          telefono: Yup.number().positive().nullable(true),
         })}
         onSubmit={async value => {
           props.setForm(prevState => ({

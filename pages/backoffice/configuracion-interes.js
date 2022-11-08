@@ -128,7 +128,7 @@ function ConfiguracionInteres() {
       </ProtectedRouteSuperAdmin>
     </LayoutSuperAdmin>
   )
-}
+} 
 
 export default ConfiguracionInteres
 

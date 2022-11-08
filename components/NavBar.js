@@ -24,11 +24,11 @@ const Navbar = () => {
     setusuarioAuth(dataUser)
   }
 
-  React.useEffect(() => {
+  React.useEffect((usuarioAuth) => {
     if (isAuth && usuario && usuarioAuth==null) {
       getUserInfo()
     }
-  },[isAuth,usuario,usuarioAuth])
+  },[isAuth,usuario])
 
 
   return (
@@ -51,7 +51,7 @@ const Navbar = () => {
           <div className="flex justify-between px-4 w-full md:w-auto">
             <Link href="/">
               <a>
-                <img src={`${process.env.NEXT_BASE_PATH}/logo-alcaldia.svg`} alt="Logo-alcaldía" />
+                <img src={`${process.env.NEXT_BASE_PATH}/logo_armas_vertical.svg`} alt="Logo-alcaldía" />
               </a>
             </Link>
 
@@ -163,7 +163,7 @@ const Navbar = () => {
           
           <Link href="/" className="justify-start">
             <a>
-              <img src={`${process.env.NEXT_BASE_PATH}/logo-alcaldia.svg`} alt="Logo-alcaldía" className="" />
+              <img src={`${process.env.NEXT_BASE_PATH}/logo_armas_vertical.svg`} alt="Logo-alcaldía" className="" />
             </a>
           </Link>
 
@@ -207,4 +207,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-

@@ -73,11 +73,11 @@ const InfoMate = props => {
 
   return loading ? (
     <div className='flex flex-nowrap flex-row items-center'>
-              <div className='h-16 flex items-center'>Cargando ...</div>
-                <div className="spinner_cont items-center">
-                  <span className="material spinner" />
-                  </div>
-                </div> 
+      <div className='h-16 flex items-center'>Cargando ...</div>
+      <div className="spinner_cont items-center">
+        <span className="material spinner" />
+      </div>
+    </div>
   ) : onErrGet ? (
     <ErrorPage message={onErrGet} />
   ) : (
@@ -85,22 +85,27 @@ const InfoMate = props => {
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object({
-          nombre: Yup.string().required('requerido'),
-          num_identificacion: Yup.number().required('requerido'),
+          nombre: Yup.string(),
+          // .required('requerido'),
+          num_identificacion: Yup.string(),
+          // .required('requerido'),
           sexo: Yup.string()
-            .required('requerido').typeError('Ingresa un sexo válido')
+            // .required('requerido')
+            // .typeError('Ingresa un sexo válido')
             .oneOf(['Masculino', 'Femenino', 'Intersexual', 'Indefinido']),
 
-          telefono: Yup.number()
-            .typeError('Debe ser un número')
-            .required('requerido')
-            .positive(' Debe ser mayor a 0'),
+          telefono: Yup.string(),
+            // .typeError('Debe ser un número'),
+          // .required('requerido')
+          // .positive(' Debe ser mayor a 0'),
 
-          lugar_trabajo: Yup.string().required('requerido'),
-          telefono_trabajo: Yup.number()
-            .typeError('Debe ser un número')
-            .required('requerido')
-            .positive(' Debe ser mayor a 0'),
+          lugar_trabajo: Yup.string(),
+          // .required('requerido'),
+          telefono_trabajo:
+          Yup.string(),
+              // .typeError('Debe ser un número'),
+          // .required('requerido')
+          // .positive(' Debe ser mayor a 0'),
         })}
         onSubmit={async value => {
           props.setForm(prevState => ({
@@ -136,13 +141,13 @@ const InfoMate = props => {
             } else {
               props.dispatch({
                 type: 'update',
-                payload: false,
+                payload: true,
                 fieldName: 'isCompletedInfoMate',
               })
-              setOnErrPost(`No fue posible almacenar estos datos, revisa la información e Intenta más tarde`)
-              setTimeout(() => {
-                setOnErrPost(null)
-              }, 5000)
+              props.setCurrent(props.current + 1)
+              router.push(
+                `/codeudor/${cedula}/${props.solicitud_id || solicitud}?paso=FCO_3&rol=${rol}`,
+              )
             }
           } catch (err) {
             console.log(err)

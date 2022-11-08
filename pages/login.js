@@ -96,9 +96,9 @@ export default function Login() {
         <div className="w-full lg:w-1/2">
           <div className="w-4/5 mx-auto">
             <img
-              src={`${process.env.NEXT_BASE_PATH}/LogoBanco.svg`} 
+              src={`${process.env.NEXT_BASE_PATH}/logo_armas.svg`} 
               alt="banco_de_las_opotunidades"
-              className="mx-auto my-4"
+              className="mx-auto my-4 "
             />
             <h1 className="text-xl text-center font-medium mb-4 titleLogin">Ingrese sus datos para iniciar sesión</h1>
 

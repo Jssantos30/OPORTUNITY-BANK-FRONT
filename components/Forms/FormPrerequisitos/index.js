@@ -35,7 +35,7 @@ const FormPrerequisitos = props => {
             .oneOf(['true'], 'Estos son los requisitos mínimos'),
           no_deudas_vigentes: Yup.string()
             .required('requerido')
-            .oneOf(['true'], 'Estos son los requisitos mínimos'),
+            .oneOf(['true','si',], 'Estos son los requisitos mínimos'),
           ubicacion_negocio: Yup.string()
             .required('requerido')
             .oneOf(['true'], 'Estos son los requisitos mínimos'),

@@ -54,7 +54,7 @@ function ReporteDeudor({
                   </div>
                   <div className="bg-color_primary_1 flex">
                     <img
-                      src={`${process.env.NEXT_BASE_PATH}/LogoBanco.svg`} 
+                      src={`${process.env.NEXT_BASE_PATH}/LogoBanco.svg`}
                       alt="logo-banco"
                       className="border rounded-r-[10px]  bg-white py-6 w-36"
                     />
@@ -67,7 +67,7 @@ function ReporteDeudor({
                 </header>
 
                 <SeccionFormulario seccion="">
-                  <div className="flex my-2 border items-center justify-center mx-auto">
+                  <div className="flex my-1 border items-center justify-center mx-auto">
                     <h1 className="font-semibold mr-4">Línea de crédito</h1>
                     <CustomField
                       type={'text'}
@@ -114,7 +114,7 @@ function ReporteDeudor({
                       name={'central_riesgos'}
                       value={prerrequisito?.no_central_riesgo ? 'No' : 'Si'}
                       label={'Central de riesgos'}
-                      width={'w-1/2'}
+                      width={'w-1/3'}
                     />
 
                     <CustomField
@@ -122,14 +122,14 @@ function ReporteDeudor({
                       name={'Linea_de_solicitud'}
                       value={credito?.tipo_solicitud ?? ''}
                       label={'Linea de solicitud'}
-                      width={'w-1/2'}
+                      width={'w-1/3'}
                     />
                     <CustomField
                       type={'text'}
                       name={'tipo_de_crédito'}
                       value={credito?.tipo_credito ?? ''}
                       label={'Tipo de crédito'}
-                      width={'w-1/2'}
+                      width={'w-1/3'}
                     />
                   </div>
                 </SeccionFormulario>
@@ -214,14 +214,14 @@ function ReporteDeudor({
                       name={'NIT'}
                       value={deudor?.persona?.nit ?? 'No aplica'}
                       label={'NIT'}
-                      width={'w-1/2'}
+                      width={'w-1/4'}
                     />
                     <CustomField
                       type={'text'}
                       name={'tipo_identificacion'}
                       value={deudor?.persona?.tipo_identificacion ?? 'No aplica'}
-                      label={'Tipo de Identificacion'}
-                      width={'w-1/2'}
+                      label={'Tipo de Identificación'}
+                      width={'w-1/4'}
                     />
                     <CustomField
                       type={'text'}
@@ -230,51 +230,43 @@ function ReporteDeudor({
                       label={'Número de Identificacion'}
                       width={'w-1/2'}
                     />
-                  </div>
+                    <CustomField
+                      type={'date'}
+                      name={'fecha_nacimiento'}
+                      value={deudor?.persona?.fecha_nacimiento ?? ''}
+                      label={'Fecha Nacimiento (mm-dd-yyyy)'}
+                      width={'w-1/2'}
+                    />
+                    <CustomField
+                      type={'text'}
+                      name={'primer_nombre'}
+                      value={deudor?.persona?.primer_nombre ?? ''}
+                      label={'Primer Nombre'}
+                      width={'w-1/4'}
+                    />
+                    <CustomField
+                      type={'text'}
+                      name={'segundo_nombre'}
+                      value={deudor?.persona?.segundo_nombre ?? ''}
+                      label={'Segundo Nombre'}
+                      width={'w-1/4'}
+                    />
 
-                  <div className="flex">
-                    <div className="w-1/2 flex flex-wrap">
-                      <CustomField
-                        type={'text'}
-                        name={'primer_nombre'}
-                        value={deudor?.persona?.primer_nombre ?? ''}
-                        label={'Primer Nombre'}
-                        width={'w-1/2'}
-                      />
+                    <CustomField
+                      type={'text'}
+                      name={'primer_apellido'}
+                      value={deudor?.persona?.primer_apellido ?? ''}
+                      label={'Primer apellido'}
+                      width={'w-1/4'}
+                    />
 
-                      <CustomField
-                        type={'text'}
-                        name={'segundo_nombre'}
-                        value={deudor?.persona?.segundo_nombre ?? ''}
-                        label={'Segundo Nombre'}
-                        width={'w-1/2'}
-                      />
-
-                      <CustomField
-                        type={'text'}
-                        name={'primer_apellido'}
-                        value={deudor?.persona?.primer_apellido ?? ''}
-                        label={'Primer apellido'}
-                        width={'w-1/2'}
-                      />
-
-                      <CustomField
-                        type={'text'}
-                        name={'segundo_apellido'}
-                        value={deudor?.persona?.segundo_apellido ?? ''}
-                        label={'Segundo apellido'}
-                        width={'w-1/2'}
-                      />
-                    </div>
-                    <div className="flex items-center justify-center w-1/2">
-                      <CustomField
-                        type={'date'}
-                        name={'fecha_nacimiento'}
-                        value={deudor?.persona?.fecha_nacimiento ?? ''}
-                        label={'Fecha Nacimiento (mm-dd-yyyy)'}
-                        cName="border-none"
-                      />
-                    </div>
+                    <CustomField
+                      type={'text'}
+                      name={'segundo_apellido'}
+                      value={deudor?.persona?.segundo_apellido ?? ''}
+                      label={'Segundo apellido'}
+                      width={'w-1/4'}
+                    />
                   </div>
 
                   <section className="p-2 border">
@@ -309,7 +301,6 @@ function ReporteDeudor({
                         label={'Discapacidad Física'}
                         width={'w-1/3'}
                       />
-
                       <CustomField
                         type={'text'}
                         name={'victima'}
@@ -317,7 +308,6 @@ function ReporteDeudor({
                         label={'Victima del conflicto'}
                         width={'w-1/3'}
                       />
-
                       <CustomField
                         type={'text'}
                         name={'poblacion_campesina'}
@@ -364,7 +354,6 @@ function ReporteDeudor({
                       label={'Vivienda'}
                       width={'w-1/3'}
                     />
-
                     {deudor?.contacto?.nombre_arrendador ? (
                       <React.Fragment>
                         <CustomField
@@ -389,18 +378,24 @@ function ReporteDeudor({
                   <div className="flex flex-wrap">
                     <CustomField
                       type={'text'}
+                      name={'estrato'}
+                      value={deudor?.contacto?.estrato ?? ''}
+                      label={'Estrato'}
+                      width={'w-1/6'}
+                    />
+                    <CustomField
+                      type={'text'}
                       name={'direccion'}
                       value={deudor?.contacto?.direccion ?? ''}
                       label={'Dirección'}
                       width={'w-1/2'}
                     />
-
                     <CustomField
                       type={'text'}
-                      name={'estrato'}
-                      value={deudor?.contacto?.estrato ?? ''}
-                      label={'Estrato'}
-                      width={'w-1/2'}
+                      name={'telefono'}
+                      value={deudor?.contacto?.telefono ?? ''}
+                      label={'Teléfono'}
+                      width={'w-1/3'}
                     />
 
                     <CustomField
@@ -410,7 +405,6 @@ function ReporteDeudor({
                       label={'Barrio o vereda'}
                       width={'w-1/2'}
                     />
-
                     <CustomField
                       type={'text'}
                       name={'comuna'}
@@ -418,29 +412,12 @@ function ReporteDeudor({
                       label={'Comuna'}
                       width={'w-1/2'}
                     />
-                  </div>
-
-                  <div className="flex flex-wrap">
-                    <CustomField
-                      type={'text'}
-                      name={'telefono'}
-                      value={deudor?.contacto?.telefono ?? ''}
-                      label={'Teléfono'}
-                      width={'w-1/3'}
-                    />
-                    <CustomField
-                      type={'text'}
-                      name={'celular'}
-                      value={deudor?.contacto?.celular ?? ''}
-                      label={'Celular'}
-                      width={'w-1/3'}
-                    />
                     <CustomField
                       type={'text'}
                       name={'correo'}
                       value={deudor?.contacto?.correo ?? ''}
                       label={'Correo'}
-                      width={'w-1/3'}
+                      width={'w-1/2'}
                     />
                   </div>
                 </SeccionFormulario>
@@ -454,14 +431,6 @@ function ReporteDeudor({
                       label={'Nombre del negocio'}
                       width={'w-1/2'}
                     />
-                    <CustomField
-                      type={'date'}
-                      name={'fecha_creacion'}
-                      value={deudor?.negocio?.fecha_creacion ?? ''}
-                      label={'Fecha de creación mm-dd-yyyy'}
-                      width={'w-1/2'}
-                    />
-
                     <CustomField
                       type={'text'}
                       name={'direccion'}
@@ -757,9 +726,9 @@ function ReporteDeudor({
                 </SeccionFormulario>
                 <div className="bg-color_primary_1 flex pagina-cinco">
                   <img
-                    src={`${process.env.NEXT_BASE_PATH}/LogoBanco.svg`} 
+                    src={`${process.env.NEXT_BASE_PATH}/LogoBanco.svg`}
                     alt="logo-banco"
-                    className="border rounded-r-[10px]  bg-white py-6 w-36"
+                    className="border rounded-r-[10px]  bg-white py-14 w-36"
                   />
                   <div className="text-white font-semibold flex flex-col w-full justify-center items-center"></div>
                 </div>

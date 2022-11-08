@@ -41,7 +41,6 @@ function ConfigurarInteres(props) {
     setOpenModal(false)
     setMessage('Procesando...')
     const URL_CREATE_CREDITO = `${process.env.NEXT_PUBLIC_CONFIG_SERVICES_V1}config/credito/portafolio`
-
     const dataToSend = {
       nombre: valuesAddLineaCredito.linea_credito,
       num_cuotas: Number(valuesAddLineaCredito.num_cuotas),
@@ -76,7 +75,7 @@ function ConfigurarInteres(props) {
         }, 5000)
       } else {
         setOpenModal(false)
-        setMessage(`Hubo un error, ${res.message}`)
+        setMessage(`Hubo un error aqui, ${res.message}`)
         setTimeout(() => {
           setMessage('')
         }, 5000)
@@ -102,7 +101,7 @@ function ConfigurarInteres(props) {
           </div>
 
           {showCreditLineBox ? (
-            <AddCredit
+            <AddCredit 
               valuesAddLineaCredito={valuesAddLineaCredito}
               setValuesAddLineaCredito={setValuesAddLineaCredito}
               showCreditLineBox={showCreditLineBox}

@@ -66,7 +66,7 @@ const DashBoardBackOffice = ({ sid, cedula }) => {
     run()
   }, [cedula, push, sid])
 
-  function DashBoard() {
+  function DashBoard() { 
     return (
       <>
         <div>

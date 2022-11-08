@@ -68,7 +68,7 @@ function Solicitudes() {
 
   return (
     <>
-      <section className="max-w-3xl mx-auto">
+      <section className="w-3/6 mx-auto">
         <ProtectedRoute>
           {error !== '' ? (<><br></br>
             <div className={ERROR_CLASS}>{error}</div>
@@ -93,17 +93,21 @@ function Solicitudes() {
                         <td> Solicitud </td>
                         <td> Tipo </td>
                         <td> Estado </td>
+                        <td> Observaciones </td>
+
                       </tr>
                     </thead>
                     <tbody>
                       {infoSol.map(({ id, tipo, estado_solicitud }, index) => {
                         const estado = estado_solicitud.filter(({ actual }) => actual === true)
+                        const observaciones = estado_solicitud.filter(({ actual }) => actual === true)
                         return (
                           <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{id}</td>
                             <td>{tipo}</td>
                             <td>{estado[0].estado} </td>
+                            <td> {observaciones[0].observaciones} </td> 
                           </tr>
                         )
                       })}

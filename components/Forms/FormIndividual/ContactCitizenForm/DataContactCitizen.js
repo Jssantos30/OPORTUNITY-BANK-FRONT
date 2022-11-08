@@ -66,13 +66,13 @@ export const Datacontact = [
     type: 'number',
     className: `${classInput}`,
   },
-  {
-    id: 40,
-    name: 'celular',
-    fieldName: 'Número Celular',
-    type: 'number',
-    className: `${classInput}`,
-  },
+  // {
+  //   id: 40,
+  //   name: 'celular',
+  //   fieldName: 'Número Celular',
+  //   type: 'number',
+  //   className: `${classInput}`,
+  // },
   {
     id: 41,
     name: 'correo',

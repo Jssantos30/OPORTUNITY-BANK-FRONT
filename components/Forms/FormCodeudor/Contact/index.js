@@ -30,7 +30,7 @@ const Contact = props => {
     barrio_vereda: '',
     comuna: '',
     telefono: '',
-    celular: '',
+    // celular: '',
     correo: props.correo || '',
     nombre_arrendador: '',
     telefono_arrendador: '',
@@ -98,7 +98,7 @@ const Contact = props => {
           barrio_vereda: Yup.string().required('requerido'),
           comuna: Yup.string().required('requerido'),
           telefono: Yup.number().typeError('Debe ser numero').notRequired().positive(),
-          celular: Yup.number().typeError('Debe ser numero').required('requerido').positive(),
+          // celular: Yup.number().typeError('Debe ser numero').required('requerido').positive(),
           correo: Yup.string().email().notRequired(),
           nombre_arrendador: Yup.string().notRequired().nullable(true),
           telefono_arrendador: Yup.number().notRequired().nullable(true),
@@ -126,10 +126,10 @@ const Contact = props => {
               estrato: Number(estrato),
             }
           } else {
-            const { telefono, celular, telefono_arrendador, estrato, ...dataContant } = value
+            const { telefono, telefono_arrendador, estrato, ...dataContant } = value
             dataToSend.data = {
               telefono: Number(telefono),
-              celular: Number(celular),
+              // celular: Number(celular),
               estrato: Number(estrato),
               telefono_arrendador: Number(telefono_arrendador),
               ...dataContant,

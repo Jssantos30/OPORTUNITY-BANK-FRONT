@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Link from 'next/link'
-import useClickOutsideComponent from '../../../Hooks/useClickOutsideComponent'
 import { useRouter } from 'next/router'
 
 function Acciones(props) {
@@ -8,14 +7,14 @@ function Acciones(props) {
   const [showMenuActions, setShowMenuActions] = React.useState(false)
   const wrapperRef = React.useRef(null)
 
-  const handleActions = () => {
+  const handleActions = () => { 
     setShowMenuActions(!showMenuActions)
   }
   const openInNewTab = url => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  return (
+  return ( 
     <div className="relative cursor-pointer">
       <div ref={wrapperRef} onClick={handleActions} className="text-3xl text-gray-500">
         <img width={29} src={`${process.env.NEXT_BASE_PATH}/puntos.svg`}/> 
@@ -30,7 +29,7 @@ function Acciones(props) {
             >
               <Link  href={`/backoffice/${props.cedula}?sid=${props.id}`}>
                 <a> Ver </a>
-              </Link>
+              </Link> 
             </li>
 
             {/* <li
@@ -47,10 +46,11 @@ function Acciones(props) {
             >
               <a
                 rel="noopener noreferrer" target={"_blank"}
-                href={`/backoffice/reporte/${props.id}?cedula=${props.cedula}&rol=${props.rol}`}
+                href={`backoffice/reporte/${props.id}?cedula=${props.cedula}&rol=${props.rol}`}
               >
                 <a> Reporte </a>
               </a>
+              
             </li>
           </ul>
         </div>

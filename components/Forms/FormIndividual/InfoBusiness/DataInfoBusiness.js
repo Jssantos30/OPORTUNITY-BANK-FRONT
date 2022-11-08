@@ -14,13 +14,13 @@ export const DataInfoBusiness = [
     type: 'text',
     className: `${classInput}`,
   },
-  {
-    id: '42.a',
-    name: 'fecha_creacion',
-    fieldName: 'Fecha de creacion del negocio',
-    type: 'date',
-    className: `${classInput}`,
-  },
+  // {
+  //   id: '42.a',
+  //   name: 'fecha_creacion',
+  //   fieldName: 'Fecha de creacion del negocio',
+  //   type: 'date',
+  //   className: `${classInput}`,
+  // },
   {
     id: '42.b',
     name: 'telefono',
@@ -54,7 +54,7 @@ export const DataInfoBusiness = [
       {
         id: 32.3,
         name: 'Servicios',
-        fieldName: 'servicios',
+        fieldName: 'Servicios',
       },
       {
         id: 32.4,
@@ -108,7 +108,7 @@ export const DataInfoBusiness = [
       {
         id: 33.7,
         name: 'Tecnología',
-        fieldName: 'tecnología',
+        fieldName: 'Tecnología',
       },
       {
         id: 33.8,
@@ -133,7 +133,7 @@ export const DataInfoBusiness = [
       {
         id: 33.12,
         name: 'Depositos y Ferretería',
-        fieldName: 'depositos y ferreterías',
+        fieldName: 'Depósitos y ferreterías',
       },
       {
         id: 33.13,

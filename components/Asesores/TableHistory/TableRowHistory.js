@@ -1,5 +1,7 @@
 import BtnEstado from '../BtnEstado'
 import BtnHistory from './BtnHistory'
+import AccionesCodeudor from '../AccionesCodeudor'
+
 
 // ESTADOS  completado, faltan documentos, por validar, listo para enviar al operador
 
@@ -22,6 +24,8 @@ function TableRowHistory(props) {
         <td className="text-center p-4">{props.credito}</td>
         <td className="text-center p-4">{formatDate(props.fecha)}</td>
         <td className="text-center p-4">{<BtnHistory estado={props.estado_solicitud} />} </td>
+        <td className="text-center p-4">
+      </td>
       </tr>
     </tbody>
   )

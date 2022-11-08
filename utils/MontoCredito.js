@@ -37,5 +37,11 @@ export function MontoCredito(credit) {
         max_prestamo: Number(MAX_PRESTAMO),
         label: 'mínimo 1 SMLV - hasta 22 SMLV',
       }
+    case 'Base Tecnológica':
+      MAX_PRESTAMO = SMLV * 22
+      return {
+        max_prestamo: Number(MAX_PRESTAMO),
+        label: 'mínimo 1 SMLV - hasta 22 SMLV',
+      }
   }
 }

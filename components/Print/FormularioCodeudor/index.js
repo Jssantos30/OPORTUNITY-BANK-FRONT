@@ -34,18 +34,18 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
         {estadoCompletoSolicitud.data.map(({ id, codeudor }) => (
           <React.Fragment key={id}>
             <div className="paginaUno">
-              <header className="my-2">
+              <header className="my-1">
                 <div>
                   <label className="flex justify-end text-color_primary_1 ">{`Número de Solicitud : ${id}`}</label>
                 </div>
                 <div className="bg-color_primary_2_dark flex">
                   <img
-                    src={`${process.env.NEXT_BASE_PATH}/LogoBanco.svg`} 
+                    src={`${process.env.NEXT_BASE_PATH}/LogoBanco.svg`}
                     alt="logo-banco"
                     className="border rounded-r-[10px]  bg-white py-6 w-36"
                   />
                   <div className="text-white font-semibold flex flex-col w-full justify-center items-center">
-                    <h1 className="text-3xl">Solicitudes de Crédito Codeudor</h1>
+                    <h1 className="text-2xl">Solicitudes de Crédito Codeudor</h1>
                     <h2 className="text-base">Este formulario es gratuito</h2>
                     <h3>FO-DESE-316 v1</h3>
                   </div>
@@ -83,7 +83,7 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                       name={'primer_nombre'}
                       value={codeudor?.persona?.primer_nombre ?? ''}
                       label={'Primer Nombre'}
-                      width={'w-1/2'}
+                      width={'w-1/4'}
                     />
 
                     <CustomField
@@ -91,7 +91,7 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                       name={'segundo_nombre'}
                       value={codeudor?.persona?.segundo_nombre ?? ''}
                       label={'Segundo Nombre'}
-                      width={'w-1/2'}
+                      width={'w-1/4'}
                     />
 
                     <CustomField
@@ -99,7 +99,7 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                       name={'primer_apellido'}
                       value={codeudor?.persona?.primer_apellido ?? ''}
                       label={'Primer apellido'}
-                      width={'w-1/2'}
+                      width={'w-1/4'}
                     />
 
                     <CustomField
@@ -107,27 +107,24 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                       name={'segundo_apellido'}
                       value={codeudor?.persona?.segundo_apellido ?? ''}
                       label={'Segundo apellido'}
-                      width={'w-1/2'}
-                    />
-                  </div>
-                  <div className="flex items-center justify-center w-1/2">
-                    <CustomField
-                      type={'date'}
-                      name={'fecha_nacimiento'}
-                      value={codeudor?.persona?.fecha_nacimiento ?? ''}
-                      label={'Fecha Nacimiento (mm-dd-yyyy)'}
-                      cName="border-none"
+                      width={'w-1/4'}
                     />
                   </div>
                 </div>
-
                 <div className="flex flex-wrap">
+                  <CustomField
+                    type={'date'}
+                    name={'fecha_nacimiento'}
+                    value={codeudor?.persona?.fecha_nacimiento ?? ''}
+                    label={'Fecha Nacimiento (mm-dd-yyyy)'}
+                    width={'w-1/2'}
+                  />
                   <CustomField
                     type={'text'}
                     name={'vivienda'}
                     value={codeudor?.contacto?.vivienda ?? ''}
                     label={'Vivienda'}
-                    width={'w-1/3'}
+                    width={'w-1/2'}
                   />
 
                   {codeudor?.contacto?.nombre_arrendador ? (
@@ -191,21 +188,14 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                     name={'telefono'}
                     value={codeudor?.contacto?.telefono ?? ''}
                     label={'Teléfono'}
-                    width={'w-1/3'}
-                  />
-                  <CustomField
-                    type={'text'}
-                    name={'celular'}
-                    value={codeudor?.contacto?.celular ?? ''}
-                    label={'Celular'}
-                    width={'w-1/3'}
+                    width={'w-1/2'}
                   />
                   <CustomField
                     type={'text'}
                     name={'correo'}
                     value={codeudor?.contacto?.correo ?? ''}
                     label={'Correo'}
-                    width={'w-1/3'}
+                    width={'w-1/2'}
                   />
                 </div>
 
@@ -240,7 +230,7 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                     name={'sexo_conyugue'}
                     value={codeudor?.conyugue?.sexo ?? ''}
                     label={'Sexo conyugue'}
-                    width={'w-1/3'}
+                    width={'w-1/2'}
                   />
                   <div className="flex flex-wrap">
                     <CustomField
@@ -248,14 +238,14 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                       name={'lugar_trabajo_conyugue'}
                       value={codeudor?.conyugue?.lugar_trabajo ?? ''}
                       label={'Lugar de trabajo'}
-                      width={'w-1/3'}
+                      width={'w-1/2'}
                     />
                     <CustomField
                       type={'text'}
                       name={'telefono_trabajo'}
                       value={codeudor?.conyugue?.telefono_trabajo ?? ''}
                       label={'Teléfono trabajo conyugue'}
-                      width={'w-1/3'}
+                      width={'w-1/2'}
                     />
                   </div>
                 </div>
@@ -271,7 +261,7 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                     name={'estado_civil'}
                     value={codeudor?.var_poblacional?.estado_civil ?? ''}
                     label={'Estado Civíl'}
-                    width={'w-1/3'}
+                    width={'w-1/4'}
                   />
 
                   <CustomField
@@ -279,7 +269,7 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                     name={'personas_a_cargo'}
                     value={codeudor?.var_poblacional?.personas_a_cargo ?? ''}
                     label={'Personas a cargo'}
-                    width={'w-1/3'}
+                    width={'w-1/4'}
                   />
 
                   <CustomField
@@ -287,18 +277,17 @@ function ReporteCodeudor({ estadoCompletoSolicitud, setEstadoCompletoSolicitud, 
                     name={'nivel_escolaridad'}
                     value={codeudor?.var_poblacional?.nivel_escolaridad ?? ''}
                     label={'Nivel de escolaridad'}
-                    width={'w-1/3'}
+                    width={'w-1/4'}
                   />
-                </div>
-
-                <div className="flex flex-wrap">
                   <CustomField
                     type={'text'}
                     name={'estado_laboral'}
                     value={codeudor?.var_poblacional?.estado_laboral ?? ''}
                     label={'Estado laboral'}
-                    width={'w-1/3'}
+                    width={'w-1/4'}
                   />
+                </div>
+                <div className="flex flex-wrap">
                   {codeudor?.var_poblacional?.estado_laboral === 'Empleado' ? (
                     <React.Fragment>
                       <CustomField

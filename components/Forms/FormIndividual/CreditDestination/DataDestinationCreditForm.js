@@ -32,36 +32,6 @@ export const DataDestinationCreditForm = [
     type: 'select',
     className: `${classInput}`,
     options: [
-      // {
-      //   id: 2.0,
-      //   name: '',
-      //   fieldName: '--Selecciona un campo--',
-      // },
-      {
-        id: 2.1,
-        name: 'Microempresarial',
-        fieldName: 'Microempresarial',
-      },
-      {
-        id: 2.2,
-        name: 'Capital Semilla',
-        fieldName: 'Capital Semilla',
-      },
-      {
-        id: 2.3,
-        name: 'Agroindustrial',
-        fieldName: 'Agroindustrial',
-      },
-      {
-        id: 2.4,
-        name: 'Venteros Informales',
-        fieldName: 'Venteros Informales',
-      },
-      // { 
-      //   id: 2.5,
-      //   name: 'Egresados',
-      //   fieldName: 'Egresados',
-      // },
     ],
   },
   {

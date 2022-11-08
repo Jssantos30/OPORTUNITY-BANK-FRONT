@@ -52,6 +52,14 @@ export const creditsItem = [
       class: 'text-sm',
       url: '/switch',
     },
+    {
+      id: 7,
+      title: 'Base Tecnológica',
+      text: 'Dirigida a personas que quieran crear o fortalecer su propio negocio de base tecnológica y que se encuentren inscritos en un programa del Centro del Valle del Software. Montos desde 1 hasta 22 SMLV (desde 1.000.000 pesos colombianos hasta 22.000.000 pesos colombianos para 2022). Plazos hasta 48 meses.',
+      src: `${process.env.NEXT_BASE_PATH}/base_tec.jpg`,
+      class: 'text-sm',
+      url: '/switch',
+    },
     // {
     //   id: 6,
     //   title: 'Línea Egresados educación superior',

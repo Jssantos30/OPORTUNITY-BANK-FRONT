@@ -90,3 +90,4 @@ interface Options extends RequestInit {
   type?: RequestTypes
   preventContentType?: boolean
 }
+

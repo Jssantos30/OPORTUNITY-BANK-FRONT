@@ -4,7 +4,7 @@ export const DataInfoMate = [
   {
     id: 81,
     name: 'nombre',
-    fieldName: 'Nombre completo del cónyugue',
+    fieldName: 'Nombre completo del cónyuge',
     type: 'text',
     className: `${classInput}`,
   },
@@ -47,7 +47,7 @@ export const DataInfoMate = [
   {
     id: 84,
     name: 'telefono',
-    fieldName: 'Teléfono del cónyugue o pareja',
+    fieldName: 'Teléfono del cónyuge o pareja',
     type: 'number',
     className: `${classInput}`,
   },

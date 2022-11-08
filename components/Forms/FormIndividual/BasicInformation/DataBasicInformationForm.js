@@ -45,11 +45,6 @@ export const DataBasicInformationForm = [
         name: 'Sisbén',
         fieldName: 'Sisbén',
       },
-      {
-        id: 11.4,
-        name: 'N/a',
-        fieldName: 'No Aplica',
-      },
     ],
   },
   {
@@ -90,14 +85,14 @@ export const DataBasicInformationForm = [
   {
     id: 17,
     name: 'razon_social',
-    fieldName: `Razón Social`,
+    fieldName: `Razón Social (Solo si es Personería jurídica)`,
     type: 'text',
     className: `${classInput}`,
   },
   {
     id: 18,
     name: 'nit',
-    fieldName: 'NIT',
+    fieldName: 'NIT (Solo si es Personería jurídica)',
     type: 'number',
     className: `${classInput}`,
   },

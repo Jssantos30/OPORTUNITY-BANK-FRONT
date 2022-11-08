@@ -85,11 +85,6 @@ export const DataBasicInformation = [
         name: 'Sisbén',
         fieldName: 'Sisbén',
       },
-      {
-        id: 11.4,
-        name: 'N/a',
-        fieldName: 'No Aplica',
-      },
     ],
   },
 

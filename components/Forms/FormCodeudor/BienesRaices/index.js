@@ -103,23 +103,23 @@ const BienesRaices = props => {
 
       <Formik
         initialValues={initialValues}
-        validationSchema={Yup.object({
-          activos_propios: Yup.number()
-            .typeError('Debe ser el número de Activos propios')
-            .test('activos_propios', '', getIsRequiredField)
-            .positive(),
-          num_escritura: Yup.number()
-            .typeError('Debe ser el número de la escritural del bien raíz')
-            .test('num_escritura', '', getIsRequiredField)
-            .positive(),
-          matricula: Yup.number()
-            .typeError('Debe ser un numero, correspondiente a la matrícula del bien raíz')
-            .test('matricula', '', getIsRequiredField)
-            .positive(),
-          avaluo_catastral: Yup.number()
-            .typeError('Debe ser un numero, correpsondiente al valor del avaluo catastral')
-            .test('avaluo_catastral', '', getIsRequiredField),
-        })}
+        // validationSchema={Yup.object({
+        //   activos_propios: Yup.number()
+        //     .typeError('Debe ser el número de Activos propios')
+        //     .test('activos_propios', '', getIsRequiredField)
+        //     .positive(),
+        //   num_escritura: Yup.number()
+        //     .typeError('Debe ser el número de la escritural del bien raíz')
+        //     .test('num_escritura', '', getIsRequiredField)
+        //     .positive(),
+        //   matricula: Yup.number()
+        //     .typeError('Debe ser un numero, correspondiente a la matrícula del bien raíz')
+        //     .test('matricula', '', getIsRequiredField)
+        //     .positive(),
+        //   avaluo_catastral: Yup.number()
+        //     .typeError('Debe ser un numero, correpsondiente al valor del avaluo catastral')
+        //     .test('avaluo_catastral', '', getIsRequiredField),
+        // })}
         onSubmit={async value => {
           // console.log(value)
           props.setForm(prevState => ({
@@ -161,13 +161,13 @@ const BienesRaices = props => {
             } else {
               props.dispatch({
                 type: 'update',
-                payload: false,
+                payload: true,
                 fieldName: 'isCompletedBienesRaices',
               })
-              setOnErrPost(`No fue posible almacenar estos datos, revisa la información e Intenta más tarde`)
-              setTimeout(() => {
-                setOnErrPost(null)
-              }, 5000)
+              props.setCurrent(props.current + 1)
+              router.push(
+                `/codeudor/${cedula}/${props.solicitud_id || solicitud}?paso=FCO_7&rol=${rol}`,
+              )
             }
           } catch (err) {
             // console.log(err)

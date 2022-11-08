@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 const ERROR_CLASS =
   'mensaje-error mb-4 px-4 py-3 rounded relative'

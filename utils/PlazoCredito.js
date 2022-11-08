@@ -29,5 +29,10 @@ export function PlazoCredito(creditName) {
         max_prestamo: 48,
         label: 'hasta 48 cuotas',
       }
+    case 'Base Tecnológica':
+      return {
+        max_prestamo: 48,
+        label: 'hasta 48 cuotas',
+      }
   }
 }

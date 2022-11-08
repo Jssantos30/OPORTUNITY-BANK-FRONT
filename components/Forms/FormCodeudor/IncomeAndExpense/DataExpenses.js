@@ -3,7 +3,7 @@ export const DataExpenses = [
   {
     id: 92,
     name: 'cuota_arrendamiento',
-    fieldName: 'Cuota de arrendamiento',
+    fieldName: 'Valor de arrendamiento',
     type: 'number',
     className: `${classInput}`,
   },

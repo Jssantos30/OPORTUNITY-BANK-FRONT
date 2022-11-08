@@ -152,7 +152,7 @@ const BasicInformationForm = props => {
             .typeError('Debe ser un número')
             .required('requerido')
             .positive('Debe ser mayor a 0'),
-          seguridad_social: Yup.string().required('requerido').oneOf(['EPS', 'Sisbén', 'N/a']),
+          seguridad_social: Yup.string().required('requerido').oneOf(['EPS', 'Sisbén']),
           primer_nombre: Yup.string()
             .required('requerido')
             .max(20, 'No puede exceder a 20 caractéres')

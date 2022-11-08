@@ -39,6 +39,11 @@ export const dataLineaCredito = [
         name: 'Egresados',
         fieldName: 'Egresados',
       },
+      {
+        id: 'linea-credito 1.6',
+        name: 'Base Tecnológica',
+        fieldName: 'Base Tecnologica',
+      },
     ],
   },
 ]

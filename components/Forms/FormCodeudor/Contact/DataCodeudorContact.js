@@ -79,6 +79,21 @@ export const Datacontact = [
         name: 3,
         fieldName: 'Estrato 3',
       },
+      {
+        id: 4,
+        name: 4,
+        fieldName: 'Estrato 4',
+      },
+      {
+        id: 5,
+        name: 5,
+        fieldName: 'Estrato 5',
+      },
+      {
+        id: 6,
+        name: 6,
+        fieldName: 'Estrato 6',
+      },
     ],
   },
   {
@@ -88,13 +103,13 @@ export const Datacontact = [
     type: 'number',
     className: `${classInput}`,
   },
-  {
-    id: 40,
-    name: 'celular',
-    fieldName: 'Número Celular',
-    type: 'number',
-    className: `${classInput}`,
-  },
+  // {
+  //   id: 40,
+  //   name: 'celular',
+  //   fieldName: 'Número Celular',
+  //   type: 'number',
+  //   className: `${classInput}`,
+  // },
   {
     id: 41,
     name: 'correo',

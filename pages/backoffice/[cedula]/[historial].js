@@ -54,7 +54,7 @@ const Historial = ({ sid, cedula }) => {
                   data[0]?.deudor?.persona.segundo_nombre || ''
                 }`
               : ''
-
+ 
           let apellidos =
             data[0]?.codeudor?.persona.num_identificacion === Number(cedula)
               ? `${data[0]?.codeudor?.persona.primer_apellido} ${

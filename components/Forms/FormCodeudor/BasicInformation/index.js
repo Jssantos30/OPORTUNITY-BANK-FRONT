@@ -146,7 +146,7 @@ const BasicInformationForm = props => {
 
               return true
             }),
-          seguridad_social: Yup.string().required('requerido').oneOf(['EPS', 'Sisbén', 'N/a']),
+          seguridad_social: Yup.string().required('requerido').oneOf(['EPS', 'Sisbén']),
           num_identificacion_deudor: Yup.number()
             .required('requerido')
             .typeError('Deber ser un numero')

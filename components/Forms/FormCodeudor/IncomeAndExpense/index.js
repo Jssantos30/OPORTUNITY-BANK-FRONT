@@ -99,22 +99,24 @@ const IncomeAndExpense = props => {
         initialValues={initialValues}
         validationSchema={Yup.object({
           salario: Yup.number().typeError('Debe ser numero').required('requerido').moreThan(-1),
-          otros_ingresos: Yup.number().typeError('Debe ser numero').notRequired().moreThan(-1),
+          otros_ingresos: Yup.number().typeError('Debe ser numero').required('requerido').moreThan(-1),
           cuota_arrendamiento: Yup.number()
             .typeError('Debe ser numero')
-            .required('requerido')
-            .positive(),
+            .required('requerido'),
+            // .positive(),
           gastos_familiares: Yup.number()
             .typeError('Debe ser numero')
-            .required('requerido')
-            .positive(),
+            .required('requerido'),
+            // .positive(),
           otros_gastos: Yup.number().typeError('Debe ser numero').required('requerido').moreThan(-1),
           gastos_mensuales: Yup.number()
-          .typeError('Debe ser numero')
-          .required('requerido').positive(),
+          .typeError('Debe ser numero'),
+          // .required('requerido'),
+          // .positive(),
           ingresos_mensuales: Yup.number()
           .typeError('Debe ser numero')
-          .required('requerido').positive(),
+          // .required('requerido'),
+          // .positive(),
         })}
         onSubmit={async value => {
           props.setForm(prevState => ({

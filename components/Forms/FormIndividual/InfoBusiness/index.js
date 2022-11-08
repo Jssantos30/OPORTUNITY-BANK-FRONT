@@ -28,7 +28,7 @@ const InfoBusiness = props => {
     nombre_negocio: '',
     comuna: '',
     direccion: '',
-    fecha_creacion: '',
+    // fecha_creacion: '',
     telefono: '',
     macrosector: '',
     subsector: '',
@@ -107,9 +107,9 @@ const InfoBusiness = props => {
           nombre_negocio: Yup.string().required('requerido'),
           comuna: Yup.string().required('requerido'),
           direccion: Yup.string().required('requerido'),
-          fecha_creacion: Yup.date()
-            .required('requerido')
-            .max(new Date().toISOString().slice(0, 10), 'Ingresa una fecha válida.'),
+          // fecha_creacion: Yup.date()
+          //   .required('requerido')
+          //   .max(new Date().toISOString().slice(0, 10), 'Ingresa una fecha válida.'),
           telefono: Yup.string()
             .required('requerido')
             .min(7, 'Ingresa un número de teléfono válido.')

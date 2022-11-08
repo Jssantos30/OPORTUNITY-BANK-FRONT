@@ -16,7 +16,7 @@ export const DataPrerequisitos = [
       {
         id: 'pr-1.2',
         name: true,
-        fieldName: 'Si',
+        fieldName: 'Sí',
       },
       {
         id: 'pr-1.3',
@@ -40,7 +40,7 @@ export const DataPrerequisitos = [
       {
         id: 'pr-2.2',
         name: true,
-        fieldName: 'Si',
+        fieldName: 'Sí',
       },
       {
         id: 'pr-2.3',
@@ -53,7 +53,7 @@ export const DataPrerequisitos = [
     id: 'pr-3',
     name: 'no_central_riesgo',
     fieldName:
-      'Está reportado en centrales de riesgo por más de 2.5 SMMLV?',
+      '¿Está reportado en centrales de riesgo (sector real: almacenes de cadena o prestadores de servicios), por más de 2.5 SMMLV?',
     type: 'select',
     className: `${classInput}`,
     options: [
@@ -65,7 +65,7 @@ export const DataPrerequisitos = [
       {
         id: 'pr-3.2',
         name: 'si',
-        fieldName: 'Si',
+        fieldName: 'Sí',
       },
       {
         id: 'pr-3.3',
@@ -78,7 +78,7 @@ export const DataPrerequisitos = [
     id: 'pr-4',
     name: 'no_deudas_vigentes',
     fieldName:
-      'Tienes créditos vigentes o tarjetas de crédito activas con entidades financieras?',
+      'Estar al día con las obligaciones en el sector financiero (de lo contrario presentar paz y salvo)',
     type: 'select',
     className: `${classInput}`,
     options: [
@@ -87,16 +87,22 @@ export const DataPrerequisitos = [
       //   name: '',
       //   fieldName: '--Selecciona un campo--',
       // },
+       {
+        id: 'pr-4.4',
+        name: true,
+        fieldName: 'No tengo créditos con entidades financieras',
+      },
       {
         id: 'pr-4.2',
         name: 'si',
-        fieldName: 'Si',
-      },
+        fieldName: 'Sí, están al día',
+      },     
       {
         id: 'pr-4.3',
-        name: true,
-        fieldName: 'No',
+        name: 'no',
+        fieldName: 'Sí, están en mora',
       },
+
     ],
   },
   {
@@ -115,7 +121,7 @@ export const DataPrerequisitos = [
       {
         id: 'p5-1.2',
         name: true,
-        fieldName: 'Si',
+        fieldName: 'Sí',
       },
       {
         id: 'p5-1.3',

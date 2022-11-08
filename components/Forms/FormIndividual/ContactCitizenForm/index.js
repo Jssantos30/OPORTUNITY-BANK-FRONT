@@ -31,7 +31,7 @@ const ContactCitizenForm = props => {
     barrio_vereda: '',
     comuna: '',
     telefono: '',
-    celular: '',
+    // celular: '',
     correo: props.correo || '',
     nombre_arrendador: '',
     telefono_arrendador: '',
@@ -110,10 +110,10 @@ const ContactCitizenForm = props => {
             .required('requerido')
             .min(7, 'Ingresa un número de teléfono válido.')
             .max(20, 'Ingresa un número de teléfono válido.'),
-          celular: Yup.string()
-            .required('requerido')
-            .min(10, 'Ingresa un número de celular válido.')
-            .max(20, 'Ingresa un número de celular válido.'),
+          // celular: Yup.string()
+          //   .required('requerido')
+          //   .min(10, 'Ingresa un número de celular válido.')
+          //   .max(20, 'Ingresa un número de celular válido.'),
           correo: Yup.string().email().required('requerido'),
           nombre_arrendador: Yup.string()
           .when('vivienda', {
@@ -153,10 +153,10 @@ const ContactCitizenForm = props => {
               telefono_arrendador: null,
             }
           } else {
-            const { telefono, celular, telefono_arrendador, estrato, ...dataContant } = value
+            const { telefono, telefono_arrendador, estrato, ...dataContant } = value
             dataToSend.data = {
               telefono: Number(telefono),
-              celular: Number(celular),
+              // celular: Number(celular),
               nombre_arrendador: nombre_arrendador || '',
               telefono_arrendador: Number(telefono_arrendador) || '',
               estrato: Number(estrato),

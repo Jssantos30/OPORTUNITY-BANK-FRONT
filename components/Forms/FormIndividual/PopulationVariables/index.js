@@ -139,7 +139,7 @@ const PopulationVariables = props => {
           nivel_escolaridad:
             Yup.string().required('requerido').oneOf(
               ['Ninguno',
-              'Priimaria',
+              'Primaria',
               'Bachiller',
               'Tecnico',
               'Tecnologo',

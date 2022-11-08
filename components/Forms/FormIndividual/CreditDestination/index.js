@@ -46,6 +46,8 @@ const CreditDestinationForm = props => {
   const [dataV, setDataV] = React.useState([])
   const [valor_tasaV, setValorTasaV] = React.useState()
 
+  const [datosForm, setDatosForm] = React.useState(DataDestinationCreditForm)
+
   React.useEffect(async () => {
     setLoading(true)
     try {
@@ -104,8 +106,21 @@ const CreditDestinationForm = props => {
         type: RequestTypes.config,
       })
       const data_lineas_creditos = await res_linea_creditos.json()
-        
-      setDataV(data_lineas_creditos)    
+
+      const nuewForm = datosForm.map(dat => {
+        if(dat.name === 'linea_credito'){
+          dat.options = data_lineas_creditos.map( (lineas, index) => {
+              return {
+                id: `2.${index}`,
+                name: lineas.nombre,
+                fieldName: lineas.nombre
+              }
+          })
+        }
+        return dat;
+      });
+      setDatosForm(nuewForm);
+      setDataV(data_lineas_creditos)
     } catch (err) { }
   }
   React.useEffect(() => {
@@ -115,11 +130,11 @@ const CreditDestinationForm = props => {
 
   return loading ? (
     <div className='flex flex-nowrap flex-row items-center'>
-              <div className='h-16 flex items-center'>Cargando ...</div>
-                <div className="spinner_cont items-center">
-                  <span className="material spinner" />
-                  </div>
-                </div> 
+      <div className='h-16 flex items-center'>Cargando ...</div>
+      <div className="spinner_cont items-center">
+        <span className="material spinner" />
+      </div>
+    </div>
   ) : onErrGet ? (
     <ErrorPage message={onErrGet} />
   ) : (
@@ -132,21 +147,15 @@ const CreditDestinationForm = props => {
             .oneOf(['Creacion', 'Fortalecimiento']),
           linea_credito: Yup.string()
             .required('requerido')
-            .oneOf([
-              'Microempresarial',
-              'Capital Semilla',
-              'Agroindustrial',
-              'Venteros Informales',
-              'Egresados',
-            ]),
+            .oneOf(dataV.map(da => da.nombre)),
           tipo_credito: Yup.string().required('requerido').oneOf(['Nuevo', 'Renovación']),
           monto_solicitado: Yup.number()
             .typeError('Debe ser un número')
             .required('requerido')
             .positive(' Debe ser mayor a 0')
             .test('monto_solicitado', '', function (monto_solicitado, context) {
-            
-              const validarMonto = dataV.filter((item)=> item.nombre === context.parent.linea_credito)
+
+              const validarMonto = dataV.filter((item) => item.nombre === context.parent.linea_credito)
               const priceSplitter = (number) => (number && number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
               if (
                 monto_solicitado >= validarMonto[0]?.monto_minimo &&
@@ -155,7 +164,7 @@ const CreditDestinationForm = props => {
                 return true
               } else {
                 return this.createError({
-                  message: `Para este crédito se permite mínimo ${priceSplitter(validarMonto[0]?.monto_minimo) }  - hasta ${priceSplitter(validarMonto[0]?.monto_total) }`,
+                  message: `Para este crédito se permite mínimo ${priceSplitter(validarMonto[0]?.monto_minimo)}  - hasta ${priceSplitter(validarMonto[0]?.monto_total)}`,
                 })
               }
             })
@@ -174,21 +183,21 @@ const CreditDestinationForm = props => {
             .positive(' Debe ser mayor a 0')
             .test('plazo', '', function (plazo, context) {
               const MIN_PLAZO = 1
-              const validarCantidadPlazo = dataV.filter((item)=> item.nombre ===  context.parent.linea_credito)
+              const validarCantidadPlazo = dataV.filter((item) => item.nombre === context.parent.linea_credito)
               if (
                 plazo >= MIN_PLAZO &&
                 plazo <= validarCantidadPlazo[0]?.num_cuotas
               ) {
                 return true
               } else {
-                  return this.createError({ message: `Maximo ${validarCantidadPlazo[0]?.num_cuotas} Cuotas` })
-                }
-              // const validarCantidadPlazo = plazoCredito(context.parent.linea_credito)
-              // if (plazo >= MIN_PLAZO && plazo <= validarCantidadPlazo?.max_prestamo) {
-              //   return true
-              // } else {
-              //   return this.createError({ message: `${validarCantidadPlazo?.label}` })
-              // }
+                return this.createError({ message: `Maximo ${validarCantidadPlazo[0]?.num_cuotas} Cuotas` })
+              }
+              //  const validarCantidadPlazo = plazoCredito(context.parent.linea_credito)
+              //  if (plazo >= MIN_PLAZO && plazo <= validarCantidadPlazo?.max_prestamo) {
+              //    return true
+              //  } else {
+              //    return this.createError({ message: `${validarCantidadPlazo?.label}` })
+              //  }
             }),
           activos: Yup.number()
             .typeError('Debe ser un número')
@@ -233,11 +242,10 @@ const CreditDestinationForm = props => {
               props.setIsCompletedCreditDestination(true)
               props.setCurrent(props.current + 1)
               router.push(
-                `/individual/${cedula}/${
-                  props.solicitud_id || solicitud
+                `/individual/${cedula}/${props.solicitud_id || solicitud
                 }?paso=FDE_4&rol=${rol}`,
               )
-              //setHide(true)
+
             } else {
               props.setIsCompletedCreditDestination(false)
               setOnErrPost(`Intenta más tarde`)
@@ -252,11 +260,10 @@ const CreditDestinationForm = props => {
       >
         {({ values }) => (
           <Form>
-            {DataDestinationCreditForm.map(field => {
+            {datosForm.map(field => {
               if (field.type === 'select') {
                 return (
                   <SelectionInput
-                    disabled={values[field.name]!='' && rol=='USUARIO'}
                     key={field.id}
                     id={field.id}
                     label={field.fieldName}
@@ -294,7 +301,7 @@ const CreditDestinationForm = props => {
                 name="plazo"
                 onWheel={preventOnWheelChange}
                 className="w-full block h-10 border border-gray-400 px-4"
-                min="2"
+
               />
             </label>
 
@@ -331,7 +338,7 @@ const CreditDestinationForm = props => {
                   onWheel={preventOnWheelChange}
                   name="activos"
                   className="w-full block h-10 border border-gray-400 px-4"
-                  min="2"
+
                 />
               </label>
             </div>
@@ -344,7 +351,7 @@ const CreditDestinationForm = props => {
                     onWheel={preventOnWheelChange}
                     name="capital_trabajo"
                     className="w-full block h-10 border border-gray-400 px-4"
-                    min="2"
+
                   />
                 </label>
               </div>
@@ -353,7 +360,7 @@ const CreditDestinationForm = props => {
             <div className="flex justify-around">
               <button
                 type="button"
-                onClick={() => {handleBack(values);run()}}
+                onClick={() => { handleBack(values); run() }}
                 className="mt-6 p-4 w-2/5 font-bold text-white rounded-full bg-red-500"
               >
                 Anterior
@@ -404,6 +411,11 @@ function plazoCredito(creditName) {
       }
 
     case 'Egresados':
+      return {
+        max_prestamo: 48,
+        label: 'hasta 48 cuotas',
+      }
+    case 'Base Tecnológica':
       return {
         max_prestamo: 48,
         label: 'hasta 48 cuotas',

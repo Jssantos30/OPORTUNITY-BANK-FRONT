@@ -2,7 +2,7 @@ import React from 'react'
 
 const CustomField = props => {
   return (
-    <div className={`flex flex-col items-center my-2 border py-2 px-2 text-sm ${props.width}`}>
+    <div className={`flex flex-col items-center border py-1 px-1 text-sm ${props.width}`}>
       <input
         type={props.type}
         name={props.name}

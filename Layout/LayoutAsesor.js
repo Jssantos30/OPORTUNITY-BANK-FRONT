@@ -38,12 +38,7 @@ const LayoutAsesor = ({ children }) => {
             icon_url={`${process.env.NEXT_BASE_PATH}/icon-solicitud-backoffice.svg`}
             icon_white_url={`${process.env.NEXT_BASE_PATH}/icon-solicitud-backoffice-white.svg`}
           />
-          <Btn
-            href="/backoffice/documentos"
-            name="Documentos"
-            icon_url={`${process.env.NEXT_BASE_PATH}/icon-solicitud-backoffice.svg`}
-            icon_white_url={`${process.env.NEXT_BASE_PATH}/icon-solicitud-backoffice-white.svg`}
-          />
+
         </div>
         <div className="md:w-4/5 pl-4 pr-4 bg-app">
           <nav className="flex justify-end bg-app items-center sr-only">
