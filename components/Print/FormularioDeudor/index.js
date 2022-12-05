@@ -47,8 +47,8 @@ function ReporteDeudor({
         {estadoCompletoSolicitud.data.map(
           ({ id, tipo, asesor, credito, deudor, prerrequisito }) => (
             <React.Fragment key={id}>
-              <div className="paginaUno">
-                <header>
+              <div className="">
+                <header className=''>
                   <div>
                     <label className="flex justify-end text-color_primary_1 ">{`Número de Solicitud : ${id}`}</label>
                   </div>
@@ -56,10 +56,10 @@ function ReporteDeudor({
                     <img
                       src={`${process.env.NEXT_BASE_PATH}/LogoBanco.svg`}
                       alt="logo-banco"
-                      className="border rounded-r-[10px]  bg-white py-6 w-36"
+                      className="border rounded-r-[10px]  bg-white py-4 w-36"
                     />
                     <div className="text-white font-semibold flex flex-col w-full justify-center items-center">
-                      <h1 className="text-3xl">Solicitudes de Crédito </h1>
+                      <h1 className="text-3xl ">Solicitudes de Crédito </h1>
                       <h2 className="text-base">Este formulario es gratuito</h2>
                       <h3>FO-DESE-206</h3>
                     </div>
@@ -67,17 +67,17 @@ function ReporteDeudor({
                 </header>
 
                 <SeccionFormulario seccion="">
-                  <div className="flex my-1 border items-center justify-center mx-auto">
+                  <div className="flex border items-center justify-center mx-auto">
                     <h1 className="font-semibold mr-4">Línea de crédito</h1>
                     <CustomField
                       type={'text'}
                       name={'lineaCredito'}
                       value={tipo}
-                      cName="w-full bg-gray-200 "
+                      cName="w-full bg-gray-200"
                     />
                   </div>
 
-                  <div className="flex flex-wrap ">
+                  <div className="flex flex-wrap">
                     <CustomField
                       type={'text'}
                       name={'nombre_funcionario'}
@@ -728,7 +728,7 @@ function ReporteDeudor({
                   <img
                     src={`${process.env.NEXT_BASE_PATH}/LogoBanco.svg`}
                     alt="logo-banco"
-                    className="border rounded-r-[10px]  bg-white py-14 w-36"
+                    className="border rounded-r-[10px]  bg-white py-4 w-36"
                   />
                   <div className="text-white font-semibold flex flex-col w-full justify-center items-center"></div>
                 </div>

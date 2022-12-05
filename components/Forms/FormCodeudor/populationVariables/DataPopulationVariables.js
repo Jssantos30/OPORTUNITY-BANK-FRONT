@@ -159,17 +159,17 @@ export const DataPopulationVariables = [
       {
         id: 86.1,
         name: 'Soltero',
-        fieldName: 'Soltero',
+        fieldName: 'Soltero(a)',
       },
       {
         id: 86.2,
         name: 'Casado',
-        fieldName: 'Casado',
+        fieldName: 'Casado(a)',
       },
       {
         id: 86.3,
         name: 'Viudo',
-        fieldName: 'Viudo',
+        fieldName: 'Viudo(a)',
       },
       {
         id: 86.4,
@@ -179,7 +179,7 @@ export const DataPopulationVariables = [
       {
         id: 86.5,
         name: 'Divorciado',
-        fieldName: 'Divorciado',
+        fieldName: 'Divorciado(a)',
       },
     ],
   },

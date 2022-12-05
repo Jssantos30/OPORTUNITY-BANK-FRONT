@@ -145,7 +145,7 @@ const CrearUsuario = ({ roles }) => {
             <label>
               Teléfono
               <Field
-                type="number"
+                type="string"
                 name="telefono"
                 className={className}
                 onWheel={preventOnWheelChange}

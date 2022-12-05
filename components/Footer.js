@@ -100,14 +100,23 @@ const Footer = ({ image }) => {
                   Centro administrativo la Alpujarra
                 </div>
               </li>
-              <li>Directorio CEDEZO</li>
+              <li>
+                <Link href="https://cvs.rutan.co/">
+                  <a target="_blank">
+                    <li className="mb-2">Centros del Valle del Software </li>
+                  </a>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
       </div>
       <div className="h-16 " style={{ background: '#0067D0' }}>
         <div className="main-wrapper flex items-center">
-          <img src={`${process.env.NEXT_BASE_PATH}/Logo-Alcadia-y-GOV.svg`} alt="Logo-Alcadia-y-GOV" />
+          <img
+            src={`${process.env.NEXT_BASE_PATH}/Logo-Alcadia-y-GOV.svg`}
+            alt="Logo-Alcadia-y-GOV"
+          />
         </div>
       </div>
     </footer>

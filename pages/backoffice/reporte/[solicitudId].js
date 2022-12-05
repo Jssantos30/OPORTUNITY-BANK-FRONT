@@ -20,10 +20,7 @@ const SolicitudID = ({ personal }) => {
   }
 
   return (
-    <div className="max-w-xl mx-auto md:-mt-24">
-      <Link href="/backoffice">
-        <a className="hover:text-blue-500">{`>Volver a Backoffice`}</a>
-      </Link>
+    <div className="max-w-2xl mx-auto md:-mt-36 ">
       {rol.includes('DEUDOR') ? (
         <ReporteDeudor
           estadoCompletoSolicitud={estadoCompletoSolicitud}
@@ -45,7 +42,7 @@ const SolicitudID = ({ personal }) => {
       <div className="flex justify-center">
         <button
           onClick={handleDownload}
-          className="border rounded-lg  p-4 my-4 bg-color_primary_2 text-white"
+          className="border rounded-lg  p-3 my-3 bg-color_primary_2 text-white"
         >
           Descargar Informe
         </button>

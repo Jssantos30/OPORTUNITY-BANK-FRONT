@@ -3,11 +3,9 @@ import Head from 'next/head'
 import * as React from 'react'
 import { servicesItem } from '../utils/servicesItem'
 import { requirementsItem } from '../utils/requirementsItem'
-import { figuresItem } from '../utils/figuresItem'
 import { benefitsItem } from '../utils/benefitsItem'
 import { carrouselItem } from '../utils/CarrouselItem'
 import Section from '../components/Section'
-import SectionTitle from '../components/SectionTitle'
 import CarrouselSection from '../components/CarrouselSection'
 
 export default function HomePage() {
@@ -130,25 +128,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-color_primary_2_ligth pt-10">
-        <div className="main-wrapper px-4">
-          <SectionTitle color_title="white">
-            El banco en <strong>Cifras</strong>
-          </SectionTitle>
-          <div className="flex flex-col justify-around items-center md:h-64 md:flex-row">
-            {figuresItem.map((item, idx) => {
-              return (
-                <div key={idx} className="text-center text-white pb-14 sm:w-1/2 md:w-1/4">
-                  <p className="text-6xl md:text-4xl lg:text-6xl font-bold">{item.number}</p>
-                  <p className="text-lg md:text-text-base lg:text-lg font-semibold">
-                    {item.title}
-                  </p>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-      </section>
+
     </>
   )
 }

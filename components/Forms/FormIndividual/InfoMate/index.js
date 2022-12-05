@@ -103,7 +103,7 @@ const InfoMate = props => {
                 )
               },
             ),
-          telefono: Yup.number().positive().nullable(true),
+          telefono: Yup.string(),
         })}
         onSubmit={async value => {
           props.setForm(prevState => ({
@@ -120,8 +120,8 @@ const InfoMate = props => {
             seccion: 'FDE_4',
             solicitud_id: props.solicitud_id || solicitud,
             data: {
-              telefono: Number(telefono),
-              num_identificacion: Number(num_identificacion),
+              telefono: String(telefono),
+              num_identificacion: String(num_identificacion),
               ...dataConyugue,
             },
           }
@@ -162,45 +162,37 @@ const InfoMate = props => {
         {() => (
           <Form>
             {DataMateForm.map(field => {
-              if (field.type === 'select') {
+              if (field.type === 'text') {
                 return (
-                  <SelectionInput
+                  <TextInput
                     key={field.id}
-                    id={field.id}
                     label={field.fieldName}
                     name={field.name}
                     className={field.className}
-                    options={field.options}
-                    render={option => (
-                      <option key={option.id} value={option.name}>
-                        {option.fieldName}
-                      </option>
-                    )}
                   />
                 )
               }
-
-              if (field.type === 'tel') {
+              if (field.type === 'number') {
+                return (
+                  <TextInput
+                    key={field.id}
+                    label={field.fieldName}
+                    name={field.name}
+                    type={'number'}
+                    className={field.className}
+                  />
+                )
+              }
+              if (field.type === 'string') {
                 return (
                   <TelInput
                     key={field.id}
                     label={field.fieldName}
                     name={field.name}
-                    type={field.type}
                     className={field.className}
                   />
                 )
               }
-
-              return (
-                <TextInput
-                  key={field.id}
-                  label={field.fieldName}
-                  name={field.name}
-                  type={field.type}
-                  className={field.className}
-                />
-              )
             })}
 
             {onErrPost ? <div className={ERROR_CLASS}>{onErrPost}</div> : null}

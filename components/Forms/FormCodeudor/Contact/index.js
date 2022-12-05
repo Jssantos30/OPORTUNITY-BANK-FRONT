@@ -97,11 +97,11 @@ const Contact = props => {
           estrato: Yup.number().typeError('Debe ser numero').required('requerido').positive(),
           barrio_vereda: Yup.string().required('requerido'),
           comuna: Yup.string().required('requerido'),
-          telefono: Yup.number().typeError('Debe ser numero').notRequired().positive(),
+          telefono: Yup.string().required('requerido'),
           // celular: Yup.number().typeError('Debe ser numero').required('requerido').positive(),
           correo: Yup.string().email().notRequired(),
           nombre_arrendador: Yup.string().notRequired().nullable(true),
-          telefono_arrendador: Yup.number().notRequired().nullable(true),
+          telefono_arrendador: Yup.string().notRequired().nullable(true),
         })}
         onSubmit={async value => {
           props.setForm(prevState => ({
@@ -128,10 +128,10 @@ const Contact = props => {
           } else {
             const { telefono, telefono_arrendador, estrato, ...dataContant } = value
             dataToSend.data = {
-              telefono: Number(telefono),
+              telefono: String(telefono),
               // celular: Number(celular),
               estrato: Number(estrato),
-              telefono_arrendador: Number(telefono_arrendador),
+              telefono_arrendador: String(telefono_arrendador),
               ...dataContant,
             }
           }
@@ -198,7 +198,7 @@ const Contact = props => {
                   key={'telefono_arrendador'}
                   label={'Telefono'}
                   name={'telefono_arrendador'}
-                  type={'number'}
+                  type={'string'}
                   className="h-10 border border-gray-400 px-4 w-full"
                 />
               </div>

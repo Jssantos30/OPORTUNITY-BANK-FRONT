@@ -39,6 +39,12 @@ const LayoutAsesor = ({ children }) => {
             icon_white_url={`${process.env.NEXT_BASE_PATH}/icon-solicitud-backoffice-white.svg`}
           />
 
+          <div className="power">
+          <p className="power_item ">Powered by:</p>
+          <p className="power_item_text">Secretaria de Innovación Digital</p>
+          <p className="version">Versión <a className="Version_item">V1.0.0</a></p>
+        </div>
+
         </div>
         <div className="md:w-4/5 pl-4 pr-4 bg-app">
           <nav className="flex justify-end bg-app items-center sr-only">

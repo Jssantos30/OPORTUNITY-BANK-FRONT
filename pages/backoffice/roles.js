@@ -85,7 +85,7 @@ const Roles = ({ roles }) => {
     const dataToSend = {
       ...infoUser,
       cedula: Number(cedula),
-      telefono: Number(telefono),
+      telefono: String(telefono),
       celular: Number(celular),
       rolID: Number(rolValueSelected?.valor),
     }

@@ -16,8 +16,7 @@ import ErrorPage from '../../../../pages/_error'
 import { preventOnWheelChange } from '../../../../utils/helpers'
 import { customFetch, RequestTypes, customFetchPublic } from '../../../../utils/custom-fetch'
 
-const ERROR_CLASS =
-  'mensaje-error mb-4 px-4 py-3 rounded relative'
+const ERROR_CLASS = 'mensaje-error mb-4 px-4 py-3 rounded relative'
 
 const CreditDestinationForm = props => {
   const router = useRouter()
@@ -65,7 +64,9 @@ const CreditDestinationForm = props => {
 
         if (response.status === 401) {
           setLoading(false)
-          setOnErrGet('Hubo un error al consultar la información del crédito, por favor intenta nuevamente')
+          setOnErrGet(
+            'Hubo un error al consultar la información del crédito, por favor intenta nuevamente',
+          )
         }
 
         if (response.status === 200) {
@@ -98,7 +99,7 @@ const CreditDestinationForm = props => {
       const { access_token } = await fetcher(URL_TOKEN)
       localStorage.setItem('token_interno', access_token)
       return access_token
-    } catch (err) { }
+    } catch (err) {}
   }
   async function run() {
     try {
@@ -108,29 +109,28 @@ const CreditDestinationForm = props => {
       const data_lineas_creditos = await res_linea_creditos.json()
 
       const nuewForm = datosForm.map(dat => {
-        if(dat.name === 'linea_credito'){
-          dat.options = data_lineas_creditos.map( (lineas, index) => {
-              return {
-                id: `2.${index}`,
-                name: lineas.nombre,
-                fieldName: lineas.nombre
-              }
+        if (dat.name === 'linea_credito') {
+          dat.options = data_lineas_creditos.map((lineas, index) => {
+            return {
+              id: `2.${index}`,
+              name: lineas.nombre,
+              fieldName: lineas.nombre,
+            }
           })
         }
-        return dat;
-      });
-      setDatosForm(nuewForm);
+        return dat
+      })
+      setDatosForm(nuewForm)
       setDataV(data_lineas_creditos)
-    } catch (err) { }
+    } catch (err) {}
   }
   React.useEffect(() => {
-
     getTokenInterno().then(() => run())
   }, [])
 
   return loading ? (
-    <div className='flex flex-nowrap flex-row items-center'>
-      <div className='h-16 flex items-center'>Cargando ...</div>
+    <div className="flex flex-nowrap flex-row items-center">
+      <div className="h-16 flex items-center">Cargando ...</div>
       <div className="spinner_cont items-center">
         <span className="material spinner" />
       </div>
@@ -154,9 +154,11 @@ const CreditDestinationForm = props => {
             .required('requerido')
             .positive(' Debe ser mayor a 0')
             .test('monto_solicitado', '', function (monto_solicitado, context) {
-
-              const validarMonto = dataV.filter((item) => item.nombre === context.parent.linea_credito)
-              const priceSplitter = (number) => (number && number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+              const validarMonto = dataV.filter(
+                item => item.nombre === context.parent.linea_credito,
+              )
+              const priceSplitter = number =>
+                number && number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
               if (
                 monto_solicitado >= validarMonto[0]?.monto_minimo &&
                 monto_solicitado <= validarMonto[0]?.monto_total
@@ -164,33 +166,36 @@ const CreditDestinationForm = props => {
                 return true
               } else {
                 return this.createError({
-                  message: `Para este crédito se permite mínimo ${priceSplitter(validarMonto[0]?.monto_minimo)}  - hasta ${priceSplitter(validarMonto[0]?.monto_total)}`,
+                  message: `Para este crédito se permite mínimo ${priceSplitter(
+                    validarMonto[0]?.monto_minimo,
+                  )}  - hasta ${priceSplitter(validarMonto[0]?.monto_total)}`,
                 })
               }
-            })
-            .test(
-              'monto_sum',
-              'El monto solicitado debe ser igual a la suma de los activos y el capital de trabajo',
-              function (monto_solicitado, context) {
-                return (
-                  monto_solicitado == context.parent.activos + context.parent.capital_trabajo
-                )
-              },
-            ),
+            }),
+          // .test(
+          //   'monto_sum',
+          //   'El monto solicitado debe ser igual a la suma de los activos y el capital de trabajo',
+          //   function (monto_solicitado, context) {
+          //     return (
+          //       monto_solicitado == context.parent.activos + context.parent.capital_trabajo
+          //     )
+          //   },
+          // ),
           plazo: Yup.number()
             .typeError('Debe ser un número')
             .required('requerido')
             .positive(' Debe ser mayor a 0')
             .test('plazo', '', function (plazo, context) {
               const MIN_PLAZO = 1
-              const validarCantidadPlazo = dataV.filter((item) => item.nombre === context.parent.linea_credito)
-              if (
-                plazo >= MIN_PLAZO &&
-                plazo <= validarCantidadPlazo[0]?.num_cuotas
-              ) {
+              const validarCantidadPlazo = dataV.filter(
+                item => item.nombre === context.parent.linea_credito,
+              )
+              if (plazo >= MIN_PLAZO && plazo <= validarCantidadPlazo[0]?.num_cuotas) {
                 return true
               } else {
-                return this.createError({ message: `Maximo ${validarCantidadPlazo[0]?.num_cuotas} Cuotas` })
+                return this.createError({
+                  message: `Maximo ${validarCantidadPlazo[0]?.num_cuotas} Cuotas`,
+                })
               }
               //  const validarCantidadPlazo = plazoCredito(context.parent.linea_credito)
               //  if (plazo >= MIN_PLAZO && plazo <= validarCantidadPlazo?.max_prestamo) {
@@ -226,6 +231,10 @@ const CreditDestinationForm = props => {
             data: { ...value },
           }
 
+          const { monto_solicitado, capital_trabajo, activos, ...dataValues } = value
+          const monto_sum = capital_trabajo + activos
+          const sum = monto_sum
+
           try {
             const { res, responseComplete, error } = await fetchData(
               `${process.env.NEXT_PUBLIC_CREDITSOLICITATION_V1}credito/solicitud`,
@@ -237,15 +246,22 @@ const CreditDestinationForm = props => {
               push('/login')
               return
             }
-
-            if (responseComplete) {
+            if (monto_sum !== monto_solicitado) {
+              props.setIsCompletedCreditDestination(false)
+              setOnErrPost(
+                `El monto solicitado debe ser igual a la suma de los activos y el capital de trabajo`,
+              )
+              setTimeout(() => {
+                setOnErrPost(null)
+              }, 5000)
+            } else if (responseComplete) {
               props.setIsCompletedCreditDestination(true)
               props.setCurrent(props.current + 1)
               router.push(
-                `/individual/${cedula}/${props.solicitud_id || solicitud
+                `/individual/${cedula}/${
+                  props.solicitud_id || solicitud
                 }?paso=FDE_4&rol=${rol}`,
               )
-
             } else {
               props.setIsCompletedCreditDestination(false)
               setOnErrPost(`Intenta más tarde`)
@@ -285,9 +301,10 @@ const CreditDestinationForm = props => {
                 Monto solicitado
                 <TextInput
                   type="number"
+                  precision="0"
                   onWheel={preventOnWheelChange}
                   name="monto_solicitado"
-                  className="w-full h-10 border border-gray-400"
+                  className="w-full h-10 border border-gray-400 "
                   min="0"
                 />
               </label>
@@ -301,7 +318,6 @@ const CreditDestinationForm = props => {
                 name="plazo"
                 onWheel={preventOnWheelChange}
                 className="w-full block h-10 border border-gray-400 px-4"
-
               />
             </label>
 
@@ -335,10 +351,10 @@ const CreditDestinationForm = props => {
                 Activos - ¿Cuánto vas a invertir en equipos y máquinas?{' '}
                 <TextInput
                   type="number"
+                  precision="0"
                   onWheel={preventOnWheelChange}
                   name="activos"
                   className="w-full block h-10 border border-gray-400 px-4"
-
                 />
               </label>
             </div>
@@ -348,10 +364,10 @@ const CreditDestinationForm = props => {
                   Capital de trabajo - ¿Cuánto vas a invertir en insumos o materia prima?
                   <TextInput
                     type="number"
+                    precision="0"
                     onWheel={preventOnWheelChange}
                     name="capital_trabajo"
-                    className="w-full block h-10 border border-gray-400 px-4"
-
+                    className="w-full block h-10 border border-gray-400 px-4 "
                   />
                 </label>
               </div>
@@ -360,7 +376,10 @@ const CreditDestinationForm = props => {
             <div className="flex justify-around">
               <button
                 type="button"
-                onClick={() => { handleBack(values); run() }}
+                onClick={() => {
+                  handleBack(values)
+                  run()
+                }}
                 className="mt-6 p-4 w-2/5 font-bold text-white rounded-full bg-red-500"
               >
                 Anterior

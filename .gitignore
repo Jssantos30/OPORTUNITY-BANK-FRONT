@@ -11,7 +11,7 @@
 
 
 # next.js
-/next
+/.next/
 /out/
 
 status
@@ -39,7 +39,7 @@ yarn-error.log*
 # vercel
 .vercel
 
-.env
+#.env
 
 .rar
 *.rar

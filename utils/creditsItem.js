@@ -7,7 +7,7 @@ export const creditsItem = [
     {
       id: 1,
       title: 'Línea Ganadores de Capital Semilla',
-      text: 'Para las empresas ganadoras del Concurso Capital Semilla de la Alcaldía de Medellín. Montos desde 1 hasta 22 SMLV. Plazo hasta 36 meses. Debes tener entre 18 y 75 años.',
+      text: 'Para las empresas ganadoras del Concurso Capital Semilla de la Alcaldía de Medellín. Montos desde  1 hasta 56 SMLV. Plazo hasta 36 meses. Debes tener entre 18 y 75 años.',
       src: `${process.env.NEXT_BASE_PATH}/credito-semilla.png`,
       class: 'small',
       url: '/switch',
@@ -33,7 +33,7 @@ export const creditsItem = [
     {
       id: 4,
       title: 'Línea Microempresarial',
-      text: 'Dirigida a personas que quieran crear o fortalecer su propio negocio. Montos desde 1 hasta 22 SMLV. Plazos hasta 36 meses. Debes tener entre 18 y 75 años.',
+      text: 'Dirigida a personas que quieran crear o fortalecer su propio negocio. Montos desde  1 hasta 56 SMLV. Plazos hasta 36 meses. Debes tener entre 18 y 75 años.',
       src: `${process.env.NEXT_BASE_PATH}/credito-microempresarial.png`,
       url: '/switch',
     },
@@ -55,7 +55,7 @@ export const creditsItem = [
     {
       id: 7,
       title: 'Base Tecnológica',
-      text: 'Dirigida a personas que quieran crear o fortalecer su propio negocio de base tecnológica y que se encuentren inscritos en un programa del Centro del Valle del Software. Montos desde 1 hasta 22 SMLV (desde 1.000.000 pesos colombianos hasta 22.000.000 pesos colombianos para 2022). Plazos hasta 48 meses.',
+      text: 'Dirigida a personas que quieran crear o fortalecer su propio negocio de base tecnológica y que se encuentren inscritos en un programa del Centro del Valle del Software. Montos desde  1 hasta 56 SMLV (desde 1.000.000 pesos colombianos hasta 56.000.000 pesos colombianos para 2022). Plazos hasta 48 meses.',
       src: `${process.env.NEXT_BASE_PATH}/base_tec.jpg`,
       class: 'text-sm',
       url: '/switch',

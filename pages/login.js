@@ -11,10 +11,8 @@ import { customFetch, RequestTypes } from '../utils/custom-fetch'
 import { preventOnWheelChange } from '../utils/helpers'
 
 const classInput = `w-full h-12 px-4 py-2 my-1 text-base border border-color_gray_5 placeholder-color_gray_5 rounded-md`
-const SUCCESS_CLASS =
-  'mensaje-exito mb-4 px-4 py-3 rounded relative'
-const ERROR_CLASS =
-  'mensaje-error mb-4 px-4 py-3 rounded relative'
+const SUCCESS_CLASS = 'mensaje-exito mb-4 px-4 py-3 rounded relative'
+const ERROR_CLASS = 'mensaje-error mb-4 px-4 py-3 rounded relative'
 
 const INITIAL_LOGIN_FORM = {
   usuario: '',
@@ -91,16 +89,22 @@ export default function Login() {
     <div className="my-10">
       <main className="max-w-5xl mx-auto min-h-full flex flex-wrap justify-center">
         <div className="relative w-2/5 h-6/12 object-cover">
-          <Image className="object-cover" src={`${process.env.NEXT_BASE_PATH}/login.png`} layout="fill" />
+          <Image
+            className="object-cover"
+            src={`${process.env.NEXT_BASE_PATH}/login.png`}
+            layout="fill"
+          />
         </div>
         <div className="w-full lg:w-1/2">
           <div className="w-4/5 mx-auto">
             <img
-              src={`${process.env.NEXT_BASE_PATH}/logo_armas.svg`} 
+              src={`${process.env.NEXT_BASE_PATH}/logo_armas.svg`}
               alt="banco_de_las_opotunidades"
               className="mx-auto my-4 "
             />
-            <h1 className="text-xl text-center font-medium mb-4 titleLogin">Ingrese sus datos para iniciar sesión</h1>
+            <h1 className="text-xl text-center font-medium mb-4 titleLogin">
+              Ingrese sus datos para iniciar sesión
+            </h1>
 
             <Formik
               initialValues={INITIAL_LOGIN_FORM}
@@ -133,7 +137,10 @@ export default function Login() {
                 />
 
                 <label className="flex gap-2 font-section text-sm mt-4">
-                  <input className="w-4 h-4 mr-1 mb-1 mt-1 inline-block text-center" type="checkbox" />
+                  <input
+                    className="w-4 h-4 mr-1 mb-1 mt-1 inline-block text-center"
+                    type="checkbox"
+                  />
                   <span className="inline-block font-medium text-left">Recuérdame</span>
                 </label>
 
@@ -143,7 +150,7 @@ export default function Login() {
                   </div>
                 )}
 
-                <div className='flex justify-between mt-10 mb-5 text-sm'>
+                <div className="flex justify-between mt-10 mb-5 text-sm">
                   <Link href="/crear-cuenta">
                     <a className="flex items-center font-medium text-color_primary_2_ligth text-center rounded-full border-2 border-color_primary_2_ligth px-9 buttonAccesLink">
                       Registrarse
@@ -152,19 +159,20 @@ export default function Login() {
 
                   <button
                     type="submit"
-                    className= "font-medium bg-color_primary_2_ligth text-center rounded-full text-white px-12 py-3 buttonAccesLogin"
+                    className="font-medium bg-color_primary_2_ligth text-center rounded-full text-white px-12 py-3 buttonAccesLogin"
                   >
                     Ingresar
                   </button>
                 </div>
                 <hr />
-                <div className='flex items-center mt-5 justify-center recoverPassword'>
-                  <p className='text-gray-400 mr-2'>¿Olvidó su contraseña?</p>
+                <div className="flex items-center mt-5 justify-center recoverPassword">
+                  <p className="text-gray-400 mr-2">¿Olvidó su contraseña?</p>
                   <Link href="/recuperar">
-                    <a className="text-color_primary_2_ligth">
-                      Recupérala AQUÍ
-                    </a>
+                    <a className="text-color_primary_2_ligth">Recupérala AQUÍ</a>
                   </Link>
+                </div>
+                <div className="flex items-center mt-12 justify-center powered">
+                  <p className='font-medium '>Powered by </p> <p className='pl-2'> Secretaría de Innovación Digital </p>
                 </div>
               </Form>
             </Formik>

@@ -178,13 +178,6 @@ const BasicInformationForm = props => {
               dataToSend,
             )
 
-            if (res.statusCode === 404) {
-              setMessageError(res.message)
-              setTimeout(() => {
-                setMessageError('')
-              }, 3000)
-            }
-
             if (responseComplete) {
               props.dispatch({
                 type: 'update',
@@ -198,6 +191,12 @@ const BasicInformationForm = props => {
                   res.solicitud_credito || solicitud
                 }?paso=FCO_2&rol=${rol}`,
               )
+            }
+            if (res.statusCode === 404) {
+              setMessageError(res.message)
+              setTimeout(() => {
+                setMessageError('')
+              }, 3000)
             } else {
               props.dispatch({
                 type: 'update',

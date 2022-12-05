@@ -19,7 +19,7 @@ export const DataPersonalReferences = [
     id: 101,
     name: 'numero_telefonico',
     fieldName: 'Número telefónico',
-    type: 'number',
+    type: 'string',
     className: `${classInput}`,
   },
   {
@@ -40,7 +40,7 @@ export const DataPersonalReferences = [
     id: 101,
     name: 'numero_telefonico_alt',
     fieldName: 'Número telefónico',
-    type: 'number',
+    type: 'string',
     className: `${classInput}`,
   },
 ]

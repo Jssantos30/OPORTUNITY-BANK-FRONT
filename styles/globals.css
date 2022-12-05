@@ -28,6 +28,35 @@ html {
   /* background-color: aquamarine; */
 }
 
+.power {
+  margin-top: 960px;
+  font-size: small;
+  font-family:'Work Sans', Courier, monospace;
+}
+
+.order_item {
+  flex-direction: row;
+}
+
+.power_item {
+  text-align: center;
+  font-weight: bold;
+}
+
+.power_item_text{
+  text-align: center;
+}
+
+.version {
+  margin-top: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.version_item {
+  font-size: medium;
+}
+
 .bg-gray-section {
   background: #f4f4f4;
   padding-top: 1rem;
@@ -364,6 +393,12 @@ input[type='number'] {
 @media (max-width: 480px) {
     .email, .recoverPassword{
     font-size: 12px;
+  }
+
+  .powered{
+    font-size: 11px;
+    font-size: small;
+
   }
 
   .emailContact{

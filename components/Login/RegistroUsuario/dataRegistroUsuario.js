@@ -138,7 +138,7 @@ export const dataRegistroUsuario = [
     name: 'telefono',
     label: 'Teléfono',
     fieldName: 'Escribe aquí tu número de teléfono',
-    type: 'number',
+    type: 'string',
     className: `${classInput}`,
   },
   {

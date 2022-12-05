@@ -22,7 +22,7 @@ export const requirementsItem = [
   },
   {
     id: 4,
-    text: 'No tener deudas vigentes ni tarjetas de crédito en entidades financieras.',
+    text: 'Estar al día con las obligaciones en el sector financiero (de lo contrario presentar paz y salvo).',
     className: '',
     src: `${process.env.NEXT_BASE_PATH}/requisito-icon-4.svg`,
   },

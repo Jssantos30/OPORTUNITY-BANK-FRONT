@@ -143,13 +143,13 @@ const ReferencesForm = props => {
                 {
                   tipo: 'personal',
                   nombre: value.nombre_referencia_familiar,
-                  telefono: Number(value.numero_telefonico),
+                  telefono: String(value.numero_telefonico),
                   parentesco: value.parentesco,
                 },
                 {
                   tipo: 'personal',
                   nombre: value.nombre_referencia_familiar_alt,
-                  telefono: Number(value.numero_telefonico_alt),
+                  telefono: String(value.numero_telefonico_alt),
                   parentesco: value.parentesco_alt,
                 },
               ],

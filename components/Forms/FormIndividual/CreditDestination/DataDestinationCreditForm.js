@@ -16,12 +16,12 @@ export const DataDestinationCreditForm = [
       {
         id: 1.1,
         name: 'Creacion',
-        fieldName: 'Creación',
+        fieldName: 'Creación, para persona que necesita un crédito para crear un negocio',
       },
       {
         id: 1.2,
         name: 'Fortalecimiento',
-        fieldName: 'Fortalecimiento',
+        fieldName: 'Fortalecimiento, persona tiene un negocio en funcionamiento y quiere fortalecerlo',
       },
     ],
   },
