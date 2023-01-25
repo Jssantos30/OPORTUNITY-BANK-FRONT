@@ -48,7 +48,7 @@ export const DataInfoMate = [
     id: 84,
     name: 'telefono',
     fieldName: 'Teléfono del cónyuge o pareja',
-    type: 'string',
+    type: 'number',
     className: `${classInput}`,
   },
   {
@@ -62,7 +62,7 @@ export const DataInfoMate = [
     id: 85,
     name: 'telefono_trabajo',
     fieldName: 'Telefono de lugar de trabajo',
-    type: 'string',
+    type: 'number',
     className: `${classInput}`,
   },
 ]

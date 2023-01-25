@@ -114,7 +114,7 @@ export default function Individual({
               <div className="w-full md:w-9/12 mx-auto mb-8">
                 <Link href="/backoffice">
                   <a className="bg-color_primary_2_ligth text-white rounded-lg  px-6 py-2 border hover:bg-color_primary_2 font-semibold">
-                    Volver a backoffice1
+                    Volver a backoffice
                   </a>
                 </Link>
               </div>

@@ -298,7 +298,7 @@ const PopulationVariables = props => {
                 <TextInput
                 label={'Teléfono de la empresa'}
                   key={'telefono_empresa'}
-                  type="string"
+                  type="number"
                   onWheel={preventOnWheelChange}
                   name="telefono_empresa"
                   placeholder="Teléfono de la empresa"

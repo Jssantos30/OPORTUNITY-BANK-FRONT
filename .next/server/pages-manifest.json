@@ -1,9 +1,0 @@
-{
-  "/_app": "pages/_app.js",
-  "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
-  "/backoffice": "pages/backoffice.js",
-  "/backoffice/[cedula]": "pages/backoffice/[cedula].js",
-  "/individual/[...usuario]": "pages/individual/[...usuario].js",
-  "/codeudor/[...usuario]": "pages/codeudor/[...usuario].js"
-}

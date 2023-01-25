@@ -19,7 +19,7 @@ export const DataMateForm = [
     id: 22,
     name: 'telefono',
     fieldName: 'Teléfono del cónyuge o pareja',
-    type: 'string',
+    type: 'number',
     className: `${classInput}`,
   },
 ]

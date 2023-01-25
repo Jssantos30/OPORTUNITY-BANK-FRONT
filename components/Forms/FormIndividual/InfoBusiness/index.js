@@ -170,14 +170,14 @@ const InfoBusiness = props => {
               ...dataBusiness,
               nombre_arrendador: null,
               telefono_arrendador: null,
-              telefono: String(telefono),
+              telefono: Number(telefono),
             }
           } else {
             const { telefono_arrendador, telefono, ...dataBusiness } = value
             dataToSend.data = {
               ...dataBusiness,
-              telefono_arrendador: String(telefono_arrendador),
-              telefono: String(telefono),
+              telefono_arrendador: Number(telefono_arrendador),
+              telefono: Number(telefono),
             }
           }
 
@@ -284,7 +284,7 @@ const InfoBusiness = props => {
                   key={'telefono_arrendador'}
                   label={'Telefono'}
                   name={'telefono_arrendador'}
-                  type="string"
+                  type="number"
                   onWheel={preventOnWheelChange}
                   className="h-10 border border-gray-400 px-4 w-full"
                 />

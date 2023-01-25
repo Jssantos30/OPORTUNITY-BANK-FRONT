@@ -62,8 +62,8 @@ export const Datacontact = [
   {
     id: 39,
     name: 'telefono',
-    fieldName: 'Teléfono fijo y/o celular',
-    type: 'string',
+    fieldName: 'Teléfono',
+    type: 'number',
     className: `${classInput}`,
   },
   // {

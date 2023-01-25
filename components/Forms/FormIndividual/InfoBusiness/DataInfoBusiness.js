@@ -25,7 +25,7 @@ export const DataInfoBusiness = [
     id: '42.b',
     name: 'telefono',
     fieldName: 'Teléfono',
-    type: 'string',
+    type: 'number',
     className: `${classInput}`,
   },
 

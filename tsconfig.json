@@ -3,7 +3,7 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/index.js"
-, "components/Forms/CurrencyInput.js", "components/Forms/CurrencyInput.js", "components/Forms/CurrencyInput.jsx", "components/Forms/CurrencyInput.js"  ],
+  ],
   "compilerOptions": {
     "lib": [
       "DOM",

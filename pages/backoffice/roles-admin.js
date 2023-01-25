@@ -47,7 +47,7 @@ function RolesAdmin({ asesores, roles }) {
     const dataToSend = {
       ...infoUser,
       cedula: Number(cedula),
-      telefono: String(telefono),
+      telefono: Number(telefono),
       celular: Number(celular),
       rolID: Number(rolValueSelected?.valor),
     }

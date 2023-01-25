@@ -13,7 +13,8 @@ import { useRouter } from 'next/router'
 import { getData } from '../../../../utils/getData'
 import ErrorPage from '../../../../pages/_error'
 
-const ERROR_CLASS = 'mensaje-error mb-4 px-4 py-3 rounded relative'
+const ERROR_CLASS =
+  'mensaje-error mb-4 px-4 py-3 rounded relative'
 
 const ContactCitizenForm = props => {
   const router = useRouter()
@@ -63,9 +64,7 @@ const ContactCitizenForm = props => {
 
         if (response.status === 401) {
           setLoading(false)
-          setOnErrGet(
-            'Hubo un error al consultar la información del crédito, por favor intenta nuevamente',
-          )
+          setOnErrGet('Hubo un error al consultar la información del crédito, por favor intenta nuevamente')
         }
 
         if (response.status === 200) {
@@ -89,12 +88,12 @@ const ContactCitizenForm = props => {
   }
 
   return loading ? (
-    <div className="flex flex-nowrap flex-row items-center">
-      <div className="h-16 flex items-center">Cargando ...</div>
-      <div className="spinner_cont items-center">
-        <span className="material spinner" />
-      </div>
-    </div>
+    <div className='flex flex-nowrap flex-row items-center'>
+              <div className='h-16 flex items-center'>Cargando ...</div>
+                <div className="spinner_cont items-center">
+                  <span className="material spinner" />
+                  </div>
+                </div> 
   ) : onErrGet ? (
     <ErrorPage message={onErrGet} />
   ) : (
@@ -106,29 +105,30 @@ const ContactCitizenForm = props => {
           direccion: Yup.string().required('requerido'),
           estrato: Yup.number().required('requerido'),
           barrio_vereda: Yup.string().required('requerido'),
-          comuna: Yup.string()
-          .required('requerido'),
+          comuna: Yup.string().required('requerido'),
           telefono: Yup.string()
-          .required('requerido')
-          .min(7, 'Ingresa un número de teléfono válido.')
-          .max(20, 'Ingresa un número de teléfono válido.'),
+            .required('requerido')
+            .min(7, 'Ingresa un número de teléfono válido.')
+            .max(20, 'Ingresa un número de teléfono válido.'),
+          // celular: Yup.string()
+          //   .required('requerido')
+          //   .min(10, 'Ingresa un número de celular válido.')
+          //   .max(20, 'Ingresa un número de celular válido.'),
           correo: Yup.string().email().required('requerido'),
-          nombre_arrendador: Yup.string().when('vivienda', {
-            is: vivienda => vivienda == 'Arrendada',
+          nombre_arrendador: Yup.string()
+          .when('vivienda', {
+            is: (vivienda) => vivienda== 'Arrendada',
             then: Yup.string().required('requerido').typeError('Ingresa un nombre válido'),
-            otherwise: Yup.string().notRequired().nullable(true),
+            otherwise: Yup.string().notRequired().nullable(true)
           }),
           telefono_arrendador: Yup.string()
-            .nullable(true)
-            .when('vivienda', {
-              is: vivienda => vivienda == 'Arrendada',
-              then: Yup.string()
-                .required('requerido')
-                .min(7, 'Ingresa un número de teléfono válido.')
-                .max(20, 'Ingresa un número de teléfono válido.')
-                .typeError('Ingresa un número de teléfono válido.'),
-              otherwise: Yup.string().nullable(true).notRequired(),
-            }),
+          .when('vivienda', {
+            is: (vivienda) => vivienda== 'Arrendada',
+            then: Yup.string().required('requerido')
+            .min(7, 'Ingresa un número de teléfono válido.')
+            .max(20, 'Ingresa un número de teléfono válido.').typeError('Ingresa un número de teléfono válido.'),
+            otherwise: Yup.string().notRequired().nullable(true)
+          }),
         })}
         onSubmit={async value => {
           props.setForm(prevState => ({
@@ -155,9 +155,10 @@ const ContactCitizenForm = props => {
           } else {
             const { telefono, telefono_arrendador, estrato, ...dataContant } = value
             dataToSend.data = {
-              telefono: String(telefono),
+              telefono: Number(telefono),
+              // celular: Number(celular),
               nombre_arrendador: nombre_arrendador || '',
-              telefono_arrendador: String(telefono_arrendador) || '',
+              telefono_arrendador: Number(telefono_arrendador) || '',
               estrato: Number(estrato),
               ...dataContant,
             }
@@ -226,55 +227,47 @@ const ContactCitizenForm = props => {
                   key={'telefono_arrendador'}
                   label={'Telefono'}
                   name={'telefono_arrendador'}
-                  type={'string'}
+                  type={'number'}
                   className="h-10 border border-gray-400 px-4 w-full"
                 />
               </div>
             ) : null}
 
-            <SelectionInput
-              key={'comuna'}
-              id={'comuna'}
-              label={'Comuna'}
-              name={'comuna'}
-              className={'h-10 border border-gray-400 px-4'}
-              options={Object.values(comunasObj)}
-              render={(option, index) => (
-                <option key={index} value={`${option}`}>
-                  {`${option}`}
-                </option>
-              )}
-            />
+            {
+              <SelectionInput
+                key={'comuna'}
+                id={'comuna'}
+                label={'Comuna'}
+                name={'comuna'}
+                className={'h-10 border border-gray-400 px-4'}
+                options={Object.values(comunasObj)}
+                render={(option, index) => (
+                  <option key={index} value={`${option}`}>
+                    {`${option}`}
+                  </option>
+                )}
+              />
+            }
 
-            <SelectionInput
-              key={'barrio_vereda'}
-              id={'barrio_vereda'}
-              label={'Barrio o Vereda'}
-              name={'barrio_vereda'}
-              className={'h-10 border border-gray-400 px-4'}
-              options={ListaComunasBarriosMedellin.filter(
-                barrio => barrio.NOMBRE_COMUNA === values.comuna,
-              )}
-              render={(option, index) => (
-                <option key={index} value={`${option.BARRIO}-${option.NOMBRE_BARRIO}`}>
-                  {`${option.NOMBRE_BARRIO}`}
-                </option>
-              )}
-            />
+            {
+              <SelectionInput
+                key={'barrio_vereda'}
+                id={'barrio_vereda'}
+                label={'Barrio o Vereda'}
+                name={'barrio_vereda'}
+                className={'h-10 border border-gray-400 px-4'}
+                options={ListaComunasBarriosMedellin.filter(
+                  barrio => barrio.NOMBRE_COMUNA === values.comuna,
+                )}
+                render={(option, index) => (
+                  <option key={index} value={`${option.BARRIO}-${option.NOMBRE_BARRIO}`}>
+                    {`${option.NOMBRE_BARRIO}`}
+                  </option>
+                )}
+              />
+            }
 
             {Datacontact.map(field => {
-              if (field.type === 'text') {
-                return (
-                  <TextInput
-                    key={field.id}
-                    id={field.id}
-                    label={field.fieldName}
-                    name={field.name}
-                    className={field.className}
-                  />
-                )
-              }
-
               if (field.type === 'select') {
                 return (
                   <SelectionInput
@@ -293,31 +286,43 @@ const ContactCitizenForm = props => {
                 )
               }
 
-              if (field.type === 'string') {
+              if (field.type === 'tel') {
                 return (
                   <TelInput
                     key={field.id}
-                    id={field.id}
-                    type={'string'}
                     label={field.fieldName}
                     name={field.name}
+                    type={field.type}
                     className={field.className}
                   />
                 )
               }
 
-              if (field.type === 'email') {
+              if (field.type === 'date') {
                 return (
-                  <TextInput
-                    key={field.id}
-                    id={field.id}
-                    label={field.fieldName}
-                    name={field.name}
-                    className={field.className}
-                  />
+                  <div key={field.id}>
+                    <DateInput
+                      key={field.id}
+                      label={field.fieldName}
+                      name={field.name}
+                      type={field.type}
+                      className={field.className}
+                    />
+                  </div>
                 )
               }
+
+              return (
+                <TextInput
+                  key={field.id}
+                  label={field.fieldName}
+                  name={field.name}
+                  type={field.type}
+                  className={field.className}
+                />
+              )
             })}
+
             {onErrPost ? <div className={ERROR_CLASS}>{onErrPost}</div> : null}
 
             <div className="flex justify-around">

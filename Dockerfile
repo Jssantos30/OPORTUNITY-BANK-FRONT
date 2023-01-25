@@ -1,5 +1,5 @@
 # Base Image
-FROM node:16.14.2
+FROM node:16.14.2 
 
 # Set working directory
 WORKDIR /app
@@ -15,3 +15,8 @@ RUN npm run build
 # expose port and define CMD
 EXPOSE 3000
 CMD ["npm", "run", "start"]
+
+# docker build -t bank-landing:latest .
+# docker tag bank-landing:latest Alcaldiabancooprtunidad.azurecr.io/frontend_bancooprtunidad:landingV23_qa
+# docker push Alcaldiabancooprtunidad.azurecr.io/frontend_bancooprtunidad:landingV23_qa
+# docker run -d -p 4000:3000 Alcaldiabancooprtunidad.azurecr.io/frontend_bancooprtunidad:landingV23_qa

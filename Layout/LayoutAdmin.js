@@ -9,35 +9,43 @@ const LayoutAdmin = ({ children }) => {
       <Title> Admin </Title>
       <div className="wrapper-backoffice flex flex-col mx-auto my-4 justify-center md:flex-row">
         <div className="max-w-1/5 min-h-full px-0 bg-white">
-          <Btn href="/backoffice" name="Solicitudes de crédito" />
-          <Btn href="/backoffice/roles-admin" name="Roles" />
-          <Btn href="/switch" name="Crear solicitud" />
+          <Btn
+            href="/backoffice"
+            name="Solicitudes de crédito"          
+          />
+          <Btn
+            href="/backoffice/roles-admin"
+            name="Roles"
+          />
+          <Btn
+            href="/switch"
+            name="Crear solicitud"
+          />
 
-          <Btn href="/backoffice/creditos-usuario" name="Créditos usuario" />
+          <Btn
+            href="/backoffice/creditos-usuario"
+            name="Créditos usuario"
+          />
 
-          <Btn href="/backoffice/documentos" name="Documentos" />
-
-          <div className="power">
-            <p className="power_item ">Powered by:</p>
-            <p className="power_item_text">Secretaria de Innovación Digital</p>
-            <p className="version">
-              Versión <a className="Version_item">V1.0.0</a>
-            </p>
-          </div>
+          <Btn
+            href="/backoffice/documentos"
+            name="Documentos"
+          />
         </div>
         <div className="md:w-4/5 p-4 bg-app">
-          <nav className="flex justify-between bg-app items-center">
-            <small
-              className="font-semibold hover:text-blu
+        <nav className="flex justify-between bg-app items-center">
+        <small
+            className="font-semibold hover:text-blu
           e-500"
-            >
-              <Link href="/backoffice">
-                <a>{`> Backoffice`}</a>
-              </Link>
-              <h2>Bienvenido</h2>
-            </small>
+          >
+            <Link href="/backoffice">
+              <a>{`> Backoffice`}</a>
+            </Link>
+            <h2>Bienvenido</h2>
+          </small>
+        
           </nav>
-
+          
           {children}
         </div>
       </div>
